@@ -11,7 +11,7 @@ As for now only [cloud version](http://ambardemo.rdseventeen.com/) available. Vi
 
 ## API
 
-Full Api documentation will be soon available at [http://docs.rdseventeen.com](http://docs.rdseventeen.com)
+API documentation available at [http://docs.rdseventeen.com](http://www.docs.rdseventeen.com/docs/rest-api)
 
 ## License
 
