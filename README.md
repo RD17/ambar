@@ -1,6 +1,6 @@
 # Ambar. Make Your Docs Searchable
 
-![Ambar](http://ambar.rdseventeen.com/img/ambar-demo-image.png)
+![Ambar](http://ambar.rdseventeen.com/img/ambar-demo-image1.png)
 
 ## What is Ambar
 
