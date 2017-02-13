@@ -4,10 +4,10 @@
 
 ## What is Ambar
 
-It’s a smart collection-indexing-searching warehouse for files. Imaging having billion of files in different formats like xls, doc, txt, etc... and any encoding. Ambar gives you an ability to search through their content and metadata in milliseconds. Any phrase or word in any sequence with stemming and fuzzy search. Ambar is very lightweight, simple and intuitive, but yet very fast and powerful in term of data amounts and scaling. All the rocket-science is hidden behind the simple UI.
+Ambar is a smart document archive. Imagine having billion of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Anbar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful in terms of data amount and scaling. All the rocket-science is hidden behind the simple UI.
 
 ## How To Install
-As for now only [cloud version](http://ambardemo.rdseventeen.com/) available. VirtualBox image will be available soon, as well as images in Docker Hub.
+Get a [VirtualBox image](http://ambar.rdseventeen.com/) on our website. Cloud version will be available soon.
 
 ## API
 
