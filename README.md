@@ -13,8 +13,5 @@ Get a [VirtualBox image](http://ambar.rdseventeen.com/) on our website. Cloud ve
 
 API documentation available at [http://docs.rdseventeen.com](http://www.docs.rdseventeen.com/docs/rest-api)
 
-## License
-
-See [LICENSE](https://raw.githubusercontent.com/RD17/ambar/master/LICENSE.md)
 
 
