@@ -1,4 +1,4 @@
-# Ambar. Make Your Docs Searchable
+# Ambar. Smart Documents Archive
 
 ![Ambar](http://ambar.rdseventeen.com/img/ambar-demo-image.png)
 
