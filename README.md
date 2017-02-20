@@ -14,7 +14,7 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 
 * Full-text Search
 * Files Crawling (SMB, FTP, Mail)
-* OCR (Pro version only)
+* OCR
 * Files Deduplication
 * Secure Storage
 
