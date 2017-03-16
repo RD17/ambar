@@ -1,6 +1,6 @@
 # Ambar: Smart Document Archive
 
-![Ambar](http://ambar.rdseventeen.com/img/ui-mockup.jpg)
+![Ambar](http://ambar.cloud/img/ui-mockup.jpg)
 
 ## What is Ambar
 
@@ -12,6 +12,7 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 
 * Full-text Search
 * Files Crawling (SMB, FTP, Mail)
+* Dropbox Integration
 * OCR
 * Files Deduplication
 * Secure Storage
@@ -21,12 +22,12 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 
 ## Self-Hosted
 
-1. Request a [VirtualBox image](http://ambar.rdseventeen.com/) on our website.
-2. Follow [the instruction](http://blog.rdseventeen.com/self-hosted-ambar-step-by-step-guide/)
+1. Request a [VirtualBox image](http://ambar.cloud/) on our website.
+2. Follow [the instruction](http://blog.ambar.cloud/self-hosted-ambar-step-by-step-guide/)
 
 ## API
 
-API documentation available at [http://docs.rdseventeen.com](http://www.docs.rdseventeen.com/docs/rest-api)
+API documentation available at [http://docs.ambar.cloud](http://docs.ambar.cloud/docs/rest-api)
 
 
 
