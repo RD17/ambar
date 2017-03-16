@@ -10,20 +10,19 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 
 [Ambar features (Vimeo)](https://vimeo.com/202204412)
 
-[Ambar Demo](http://ambardemo.rdseventeen.com/) no sign-up required
-
 * Full-text Search
 * Files Crawling (SMB, FTP, Mail)
 * OCR
 * Files Deduplication
 * Secure Storage
 
-## How To Install
+## Cloud
+[Signup](https://app.ambar.cloud/signup)
+
+## Self-Hosted
 
 1. Request a [VirtualBox image](http://ambar.rdseventeen.com/) on our website.
 2. Follow [the instruction](http://blog.rdseventeen.com/self-hosted-ambar-step-by-step-guide/)
-
-_Cloud version will be available soon._
 
 ## API
 
