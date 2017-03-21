@@ -18,7 +18,7 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 * Secure Storage
 
 ## Cloud
-[Signup](https://app.ambar.cloud/signup)
+ * [Signup](https://app.ambar.cloud/signup)
 
 ## Self-Hosted
 
