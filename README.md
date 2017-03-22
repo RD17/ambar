@@ -25,9 +25,4 @@ Ambar is a smart documents archive with automated crawling, OCR, deduplication a
 1. Request a [VirtualBox image](http://ambar.cloud/) on our website.
 2. Follow [the instruction](http://blog.ambar.cloud/self-hosted-ambar-step-by-step-guide/)
 
-## API
-
-API documentation available at [http://docs.ambar.cloud](http://docs.ambar.cloud/docs/rest-api)
-
-
 
