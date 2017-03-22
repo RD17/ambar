@@ -1,6 +1,6 @@
 # Ambar: Smart Document Archive
 
-![Ambar](http://ambar.cloud/img/ui-mockup.jpg)
+![Ambar](https://habrastorage.org/files/947/a32/de7/947a32de7156478094e3e12c16e8366c.jpg)
 
 ## What is Ambar
 
