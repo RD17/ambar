@@ -38,7 +38,7 @@ Self-Hosted Ambar can be installed in two ways. As a VirtualBox image or as a se
 
 
 ## Privacy Policy
-Cloud and Self-Hosted Ambar do not send any of your personal information anywhere.
+[Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
 
 ## License
 
