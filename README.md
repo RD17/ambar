@@ -42,5 +42,5 @@ Self-Hosted Ambar can be installed in two ways. As a VirtualBox image or as a se
 
 ## License
 
-
+[Fair Source 1 License v0.9](https://github.com/RD17/ambar/blob/master/License.txt)
 
