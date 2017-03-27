@@ -13,10 +13,14 @@ Ambar is a smart document archive with automated crawling, OCR, deduplication an
 
 * Full-text Search [Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
 * Files Crawling (SMB, FTP, Mail)
+* Scheduled Crawling
 * Dropbox Integration [Tutorial: How to Search Through Your Dropbox Files Content](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
 * OCR
 * Files Deduplication
 * Secure Storage
+* Real-Time Statistics
+* Web UI
+* REST API
 
 ## Cloud
 It's full-featured latest Ambar, hosted on our servers. All the accounts and data is secured and carefully stored. You can connect Ambar directly to your Dropbox account and enjoy Ambar powerful search over your Dropbox. Trying Ambar Cloud is a perfect way to get the taste what Ambar is.
@@ -27,10 +31,11 @@ It's full-featured latest Ambar, hosted on our servers. All the accounts and dat
 Basic Ambar Cloud Account gives you space to store up to 2000 documents. To store more files you can upgrade to Pro version.
 
 ## Hosting Ambar on Your Own Servers
-Self-Hosted Ambar can be installed in two ways. As a VirtualBox image or as a set of Docker images. Community Edition available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication.
+Self-Hosted Ambar can be installed in two ways. As a VirtualBox image or as a set of Docker images. Community Edition available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication. Also you can request a free Enterprise Edition trial, drop us an email on hello@ambar.cloud
 
 * [Virtual Box Installation instructions](http://blog.ambar.cloud/self-hosted-ambar-step-by-step-guide/)
 * [Docker Installation Instructions]()
+
 
 ## Privacy Policy
 Cloud and Self-Hosted Ambar do not send any of your personal information anywhere.
