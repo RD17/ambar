@@ -1,3 +1,4 @@
+[![Version](https://img.shields.io/badge/Version-v0.9c-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 
 # Ambar: Smart Document Archive
@@ -33,11 +34,9 @@ It's full-featured latest Ambar, hosted on our servers. All the accounts and dat
 Basic Ambar Cloud Account gives you space to store up to 2000 documents. To store more files you can upgrade to Pro version.
 
 ## Hosting Ambar on Your Own Servers
-Self-Hosted Ambar can be installed in two ways. As a VirtualBox image or as a set of Docker images. Community Edition available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication. Also you can request a free Enterprise Edition trial, drop us an email on hello@ambar.cloud
+Self-Hosted Ambar can be installed as a set of Docker images. Community Edition available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication. Also you can request a free Enterprise Edition trial, drop us an email on hello@ambar.cloud
 
-* [Virtual Box Installation instructions](http://blog.ambar.cloud/self-hosted-ambar-step-by-step-guide/)
-* [Docker Installation Instructions]()
-
+* [Docker Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
 
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
