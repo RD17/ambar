@@ -2,6 +2,9 @@
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 
 # Ambar: Smart Document Archive
+
+If you like Ambar please :STAR: it!
+
 [Landing Page](https://ambar.cloud) | [Cloud](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
 ![Ambar](https://habrastorage.org/files/947/a32/de7/947a32de7156478094e3e12c16e8366c.jpg)
@@ -37,6 +40,8 @@ Basic Ambar Cloud Account gives you space to store up to 2000 documents. To stor
 Self-Hosted Ambar can be installed as a set of Docker images. Community Edition available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication. Also you can request a free Enterprise Edition trial, drop us an email on hello@ambar.cloud
 
 * [Docker Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
+
+Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
