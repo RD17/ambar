@@ -3,7 +3,7 @@
 
 # Ambar: Smart Document Archive
 
-If you like Ambar please :STAR: it!
+If you like Ambar please :star: it!
 
 [Landing Page](https://ambar.cloud) | [Cloud](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
