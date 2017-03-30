@@ -39,7 +39,7 @@ Basic Ambar Cloud Account gives you space to store up to 2000 documents. To stor
 ## Hosting Ambar on Your Own Servers
 Self-Hosted Ambar can be installed as a set of Docker images. Community Edition is available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication, though preserving full functionality. Also you can request a trial for Enterprise Edition, drop us an email on hello@ambar.cloud
 
-* [Docker Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
+* [Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
 
 Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 
