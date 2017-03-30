@@ -1,5 +1,6 @@
 [![Version](https://img.shields.io/badge/Version-v0.9c-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
 # Ambar: Smart Document Archive
 
