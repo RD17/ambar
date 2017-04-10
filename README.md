@@ -44,6 +44,10 @@ Self-Hosted Ambar can be installed as a set of Docker images. Community Edition 
 
 Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 
+## How it Works
+
+* [Under the Hood](https://blog.ambar.cloud/ambar-under-the-hood/)
+
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
 
