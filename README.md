@@ -27,7 +27,7 @@ Ambar is a smart document archive with automated crawling, OCR, deduplication an
 * Secure Storage
 * Real-Time Statistics
 * Web UI
-* REST API
+* [REST API](https://github.com/RD17/ambar/blob/master/API_DOC.md)
 
 ## Cloud
 It's full-featured latest Ambar, hosted on our servers. All the accounts and data is secured and carefully stored. You can connect Ambar directly to your Dropbox account and enjoy Ambar powerful search over your Dropbox. Trying Ambar Cloud is a perfect way to get the taste what Ambar is.
@@ -47,6 +47,7 @@ Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 ## How it Works
 
 * [Under the Hood](https://blog.ambar.cloud/ambar-under-the-hood/)
+* [REST API Documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md)
 
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
