@@ -50,6 +50,37 @@ Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 * [REST API Documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md)
 * Source Code is freely available under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt). ([Frontend](https://github.com/RD17/ambar-frontend), [Crawler](https://github.com/RD17/ambar-crawler), [ElasticSearch](https://github.com/RD17/ambar-es), [Rabbit](https://github.com/RD17/ambar-rabbit), [Mongo](https://github.com/RD17/ambar-mongodb), [Installer](https://github.com/RD17/ambar-install))
 
+## FAQ
+### Is it open-source?
+Yes, we publish almost all our modules on GitHub under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt)
+
+### Is it free?
+Yes, Community Edition is forever free. We will NOT charge a penny from you to use it. Basic cloud account is forever free too.
+
+### Does it perform OCR? 
+Yes, it perform OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tune it to achieve best perfomance and quality on scanned documents.
+
+### Does it support tagging?
+Nope, we working on it. As a workaround you can use folders hierarchy as a set of tags.
+
+### What about searching in PDF?
+Yes, it can search through any PDF, even badly encoded or with scans inside. We did our best to make search over any kind of document smooth.
+
+### I miss XXX language analyzer. Can you add it?
+Yes, please create an issue
+
+### When the localization will be ready?
+We're working on it. Be patient.
+
+### What maximum file size can it handle?
+It's limited by amount of RAM on your machine, typically 500MB. It's very good result, as default document managment systems offer 40MB maximum file size to be processed.
+
+### Can anyone else see my documents?
+Nope, check our Privacy Policy.
+
+### I have a problem what should I do?
+Submit an issue or chat with us on https://ambar.cloud
+
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
 
