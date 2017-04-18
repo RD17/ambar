@@ -48,32 +48,39 @@ Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 
 * [Under the Hood](https://blog.ambar.cloud/ambar-under-the-hood/)
 * [REST API Documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md)
-* Source Code is freely available under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt). ([Frontend](https://github.com/RD17/ambar-frontend), [Crawler](https://github.com/RD17/ambar-crawler), [ElasticSearch](https://github.com/RD17/ambar-es), [Rabbit](https://github.com/RD17/ambar-rabbit), [Mongo](https://github.com/RD17/ambar-mongodb), [Installer](https://github.com/RD17/ambar-install))
+* The Source Code is freely available under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt). ([Frontend](https://github.com/RD17/ambar-frontend), [Crawler](https://github.com/RD17/ambar-crawler), [ElasticSearch](https://github.com/RD17/ambar-es), [Rabbit](https://github.com/RD17/ambar-rabbit), [Mongo](https://github.com/RD17/ambar-mongodb), [Installer](https://github.com/RD17/ambar-install))
 
 ## FAQ
 ### Is it open-source?
-Yes, we publish almost all our modules on GitHub under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt)
+Yes, almost every Ambar's module is published on GitHub under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt)
 
 ### Is it free?
-Yes, Community Edition is forever free. We will NOT charge a penny from you to use it. Basic cloud account is forever free too.
+Yes, Community Edition is forever free. We will NOT charge a penny from you to use it. Basic cloud account is also forever free.
 
 ### Does it perform OCR? 
-Yes, it perform OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tune it to achieve best perfomance and quality on scanned documents.
+Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. 
+
+### Which languages are supported by OCR?
+Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Nld.
+If you miss your language, please create an issue on GitHub and we'll add it ASAP.
 
 ### Does it support tagging?
 Nope, we working on it. As a workaround you can use folders hierarchy as a set of tags.
 
 ### What about searching in PDF?
-Yes, it can search through any PDF, even badly encoded or with scans inside. We did our best to make search over any kind of document smooth.
+Yes, it can search through any PDF, even badly encoded or with scans inside. We did our best to make search over any kind of pdf document smooth.
 
 ### I miss XXX language analyzer. Can you add it?
-Yes, please create an issue
+Yes, please create an issue on GitHub.
 
-### When the localization will be ready?
+### Are you going to add UI localizations?
 We're working on it. Be patient.
 
-### What maximum file size can it handle?
-It's limited by amount of RAM on your machine, typically 500MB. It's very good result, as default document managment systems offer 40MB maximum file size to be processed.
+### What is the maximum file size it can handle?
+It's limited by amount of RAM on your machine, typically 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
+
+### What is the difference between Ambar CE and Ambar EE?
+Basically Ambar CE is a downscaled Ambar EE. For more details check [this](https://ambar.cloud/#get-invite)
 
 ### Can anyone else see my documents?
 Nope, check our Privacy Policy.
