@@ -2,7 +2,8 @@
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
-# Ambar: Simple Document Archive
+Ambar: Simple Document Archive
+================================
 
 If you like Ambar please :star: it!
 
@@ -88,10 +89,12 @@ Nope, check our Privacy Policy.
 ### I have a problem what should I do?
 Submit an issue or chat with us on https://ambar.cloud
 
+## Change Log
+[Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
+
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
 
 ## License
-
 [Fair Source 1 License v0.9](https://github.com/RD17/ambar/blob/master/License.txt)
 
