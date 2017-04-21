@@ -92,6 +92,9 @@ Submit an issue or chat with us on https://ambar.cloud
 ## Change Log
 [Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
 
+## Contributors
+- [hartmch](https://github.com/hartmch)
+
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
 
