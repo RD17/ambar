@@ -8,11 +8,11 @@ Change log
 
 - Added avatar for every file type. Click on it to perform search for files with the same extension.
 
-![Avatar for every file type](https://habrastorage.org/files/829/364/b73/829364b730e148958cfe7785e5b294f0.png)
+![Avatar for every file type](https://habrastorage.org/files/882/e10/fa2/882e10fa2100416c8a0133ab3a747e47.png)
 
 - Added 'Delete user account' button
 
-![Delete Account](https://habrastorage.org/files/73b/426/777/73b4267776ca4b6cac6e9eec30037845.png)
+![Delete Account](https://habrastorage.org/files/d41/9bb/511/d419bb511da5413fb7415675b716cdd7.png)
 
 - Now you can download extracted text from files ("TEXT" button)
 ![Text button](https://habrastorage.org/files/d09/c6b/a4f/d09c6ba4f58b4b08b83e9466b772c47f.png)
