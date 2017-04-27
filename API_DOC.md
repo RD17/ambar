@@ -152,7 +152,7 @@ HTTP/1.1 200 OK
       }
       }
   ],
-  "took": 438.818418
+  "took": 18.818418
  }
 ```
 ### Error Response
