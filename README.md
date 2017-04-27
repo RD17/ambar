@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v0.9.1-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v0.9.2-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
@@ -25,6 +25,7 @@ Ambar is a simple document management system with automated crawling, OCR, dedup
 * Dropbox Integration [Tutorial: How to Search Through Your Dropbox Files Content](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
 * Advanced OCR
 * Files Deduplication
+* Files Preview
 * Secure Storage
 * Real-Time Statistics
 * Web UI
