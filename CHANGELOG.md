@@ -1,6 +1,46 @@
 Change log
 ==========
 
+0.9.2 (2017-04-27)
+-------------------
+
+### New features
+
+- Added avatar for every file type. Click on it to perform search for files with the same extension.
+
+![Avatar for every file type](https://habrastorage.org/files/829/364/b73/829364b730e148958cfe7785e5b294f0.png)
+
+- Added 'Delete user account' button
+
+![Delete Account](https://habrastorage.org/files/73b/426/777/73b4267776ca4b6cac6e9eec30037845.png)
+
+- Now you can download extracted text from files ("TEXT" button)
+![Text button](https://habrastorage.org/files/d09/c6b/a4f/d09c6ba4f58b4b08b83e9466b772c47f.png)
+
+- Added document preview in Google Viewer. By default this option is disabled as it requires having a public IP address for Ambar. You can preview documents of next formats: doc, docx, ppt, pptx, rtf, txt, xls, xlsx, csv, pdf which size < 3MB. To enable this feature add 
+next lines to your `config.json` file: 
+```
+"api": {
+  .....
+  "showFilePreview": "true"
+  .....
+}
+``` 
+![Documents preview button](https://habrastorage.org/files/18f/fd0/22e/18ffd022ec8c4ee6a097c9b3e6a0ef8b.png)
+
+- Modified datetime is displayed in human readbale format
+![Modified datetime](https://habrastorage.org/files/c71/db7/544/c71db7544d8841368932b316f7c52c24.png)
+
+- Added `reset`(remove all data from Ambar) and `uninstall` actions to `ambar.py` management script
+
+### Bugfixes
+
+ - Minor bugfixes (thanks for your feedback)
+ 
+### Migration from 0.9.1
+
+ - Before updating your Ambar to this version, update your `ambar.py` script by running `wget -O ambar.py https://static.ambar.cloud/ambar.py && chmod +x ./ambar.py`
+
 0.9.1 (2017-04-20)
 -------------------
 
