@@ -17,8 +17,7 @@ Change log
 - Now you can download extracted text from files ("TEXT" button)
 ![Text button](https://habrastorage.org/files/d09/c6b/a4f/d09c6ba4f58b4b08b83e9466b772c47f.png)
 
-- Added document preview in Google Viewer. By default this option is disabled as it requires having a public IP address for Ambar. You can preview documents of next formats: doc, docx, ppt, pptx, rtf, txt, xls, xlsx, csv, pdf which size < 3MB. To enable this feature add 
-next lines to your `config.json` file: 
+- Added document preview in Google Viewer. By default this option is disabled as it requires having a public IP address for Ambar. You can preview documents of next formats: doc, docx, ppt, pptx, rtf, txt, xls, xlsx, csv, pdf and sizes less than 3MB. To enable this feature add next lines to your `config.json` file: 
 ```
 "api": {
   .....
