@@ -16,3 +16,6 @@
 [submodule "Rabbit"]
 	path = Rabbit
 	url = git@github.com:RD17/ambar-rabbit.git
+[submodule "Proxy"]
+	path = Proxy
+	url = git@github.com:RD17/ambar-proxy.git
