@@ -52,6 +52,7 @@ Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 
 * [Under the Hood](https://blog.ambar.cloud/ambar-under-the-hood/)
 * [REST API Documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md)
+* [Management Script](https://blog.ambar.cloud/ambar-management-script-full-description/)
 * The Source Code is freely available under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt). ([Frontend](https://github.com/RD17/ambar-frontend), [Crawler](https://github.com/RD17/ambar-crawler), [ElasticSearch](https://github.com/RD17/ambar-es), [Rabbit](https://github.com/RD17/ambar-rabbit), [Mongo](https://github.com/RD17/ambar-mongodb), [Installer](https://github.com/RD17/ambar-install))
 
 ## FAQ
