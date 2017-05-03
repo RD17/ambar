@@ -65,7 +65,7 @@ Yes, Community Edition is forever free. We will NOT charge a penny from you to u
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. 
 
 ### Which languages are supported by OCR?
-Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Nld.
+Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Nld, CJK.
 If you miss your language, please create an issue on GitHub and we'll add it ASAP.
 
 ### Does it support tagging?
