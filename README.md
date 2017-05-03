@@ -7,6 +7,8 @@ Ambar: Simple Document Management
 
 If you like Ambar please :star: it!
 
+Other Languages: [Polish](https://github.com/RD17/ambar/blob/master/README_PL.md)
+
 [Landing Page](https://ambar.cloud) | [Cloud](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
 ![Ambar](https://habrastorage.org/files/947/a32/de7/947a32de7156478094e3e12c16e8366c.jpg)
@@ -95,6 +97,7 @@ Submit an issue or chat with us on https://ambar.cloud
 
 ## Contributors
 - [hartmch](https://github.com/hartmch)
+- [bdevelops](https://github.com/bdevelops)
 
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
