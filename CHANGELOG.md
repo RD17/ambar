@@ -1,6 +1,24 @@
 Change log
 ==========
 
+0.9.3 (2017-05-04)
+-------------------
+
+### New features
+
+- Community Edition now supports authentication
+- New module added - Ambar Proxy. Now by default Ambar API and WEB UI use the same 80 port
+- Added Polish language analyzer, use `ambar_pl` in `config.json` to enable it
+- Internal Ambar networking upgraded that improved stability and performance
+
+### Bugfixes
+
+- Minor UI and WebApi bugfixes (thanks for your feedback)
+
+### Migration from 0.9.2
+
+- Before updating your Ambar to this version, update your `ambar.py` script by running `wget -O ambar.py https://static.ambar.cloud/ambar.py && chmod +x ./ambar.py` and remove `api.internal` & `fe.internal` sections from your `config.json`
+
 0.9.2 (2017-04-27)
 -------------------
 
@@ -49,9 +67,9 @@ Change log
  
  ![Search as You Type](https://habrastorage.org/files/e34/e11/2b2/e34e112b2b6849a4b77d2fe542c24d1c.gif)
   
- - Added German language analyzer, use `ambar-de` in `config.json` to enable it
+ - Added German language analyzer, use `ambar_de` in `config.json` to enable it
  
- - Added CJK language analyzer, use `ambar-cjk` in `config.json` to enable it
+ - Added CJK language analyzer, use `ambar_cjk` in `config.json` to enable it
  
  - Added search by document update time. Examples: `when:today` - search for all documents modified today, other options are: *today*, *yesterday*, *thisweek*, *thismonth*, *thisyear*
  
@@ -70,7 +88,7 @@ Change log
  
  - Added search by Author, all available queries are [described here](https://blog.ambar.cloud/mastering-ambar-search-queries/)
  
- - Added Italian language analyzer, use `ambar-it` in `config.json` to enable it
+ - Added Italian language analyzer, use `ambar_it` in `config.json` to enable it
  
  - Added [API documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md) to GitHub, so you can connect Ambar with other systems
  
