@@ -6,7 +6,7 @@ Change log
 
 ### New features
 
-- Community Edition now supports authentication
+- Community Edition now supports authentication. Don't forget to SignUp!
 - New module added - Ambar Proxy. Now by default Ambar API and WEB UI use the same 80 port
 - Added Polish language analyzer, use `ambar_pl` in `config.json` to enable it
 - Internal Ambar networking upgraded that improved stability and performance
