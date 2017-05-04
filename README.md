@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v0.9.2-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v0.9.3-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
@@ -66,7 +66,7 @@ Yes, Community Edition is forever free. We will NOT charge a penny from you to u
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. 
 
 ### Which languages are supported by OCR?
-Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Nld, CJK.
+Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK.
 If you miss your language, please create an issue on GitHub and we'll add it ASAP.
 
 ### Does it support tagging?
