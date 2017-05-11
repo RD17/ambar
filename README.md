@@ -28,6 +28,7 @@ Ambar is a simple document management system with automated crawling, OCR, dedup
 * Search By File Path (filename:\*.txt)
 * Search By Date (when: yesterday, today, lastweek, etc)
 * Search By Size (size>1M)
+* Search As You Type
 * Supported language analyzers (Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK)
 
 ### Crawling
