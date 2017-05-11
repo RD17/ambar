@@ -1,6 +1,20 @@
 Change log
 ==========
 
+0.9.4 (2017-05-11)
+-------------------
+
+### New features
+- Added [FTP Crawler](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
+- Added [Mail Crawler](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
+
+### Bugfixes
+- Minor UI and WebApi bugfixes (thanks for your feedback)
+
+### Migration from 0.9.3
+
+- To update your Ambar to latest version use `wget -O ambar.py https://static.ambar.cloud/ambar.py && chmod +x ./ambar.py && sudo ./ambar.py update`.
+
 0.9.3 (2017-05-04)
 -------------------
 
