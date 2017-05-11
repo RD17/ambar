@@ -22,7 +22,7 @@ Ambar is a simple document management system with automated crawling, OCR, dedup
 [Ambar features overview (Vimeo)](https://vimeo.com/202204412)
 
 * Full-text Search [Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
-* Files Crawling (SMB, FTP, Mail) [Tutorial: Crawling Your Own Shared Folders](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
+* Files Crawling ([SMB](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/), [FTP](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/), [Mail](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/))
 * Scheduled Crawling
 * Dropbox Integration [Tutorial: How to Search Through Your Dropbox Files Content](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
 * Advanced OCR
