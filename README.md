@@ -19,29 +19,54 @@ Ambar is a simple document management system with automated crawling, OCR, dedup
 
 ## Features
 
+### Search
+[Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
+
+* Fuzzy Search (John~3)
+* Phrase Search ("John Smith")
+* Search By Author (author:John)
+* Search By File Path (filename:\*.txt)
+* Search By Date (when: yesterday, today, lastweek, etc)
+* Search By Size (size>1M)
+* Supported language analyzers (Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK)
+
+### Crawling
+* [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
+* [FTP Crawling](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
+* [Mail Crawling](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
+* [Dropbox Crawling](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
+* Scheduled Crawling (Cron schedule syntax)
+* Files Deduplication
+
+### Content Extraction
+* Extract content from large files (>30M)
+* ZIP archives
+* MS Office documents (Word, Excel, Powerpoint, Visio, Publisher)
+* OCR over images
+* Email messages with attachments
+* Adobe PDF (with OCR)
+* OpenOffice documents
+* RTF, Plaintext
+* HTML / XHTML
+* Multithread processing (Only EE)
+
+### General
 [Ambar features overview (Vimeo)](https://vimeo.com/202204412)
 
-* Full-text Search [Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
-* Files Crawling ([SMB](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/), [FTP](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/), [Mail](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/))
-* Scheduled Crawling
-* Dropbox Integration [Tutorial: How to Search Through Your Dropbox Files Content](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
-* Advanced OCR
-* Files Deduplication
-* Files Preview
-* Secure Storage
+* Files Preview (with Google Docs View)
 * Real-Time Statistics
 * Web UI
 * [REST API](https://github.com/RD17/ambar/blob/master/API_DOC.md)
+* Multiple user accounts (Only EE)
 
-## Cloud
+## Installation
+### Ambar Cloud
 It's full-featured latest Ambar, hosted on our servers. All the accounts and data is secured and carefully stored. You can connect Ambar directly to your Dropbox account and enjoy Ambar powerful search over your Dropbox. Trying Ambar Cloud is a perfect way to get the taste what Ambar is.
 
  * [Signup](https://app.ambar.cloud/signup)
  * That's it!
  
-Basic Ambar Cloud Account gives you space to store up to 2000 documents. To store more files you can upgrade to Pro version.
-
-## Hosting Ambar on Your Own Servers
+### Self-Hosted Ambar
 Self-Hosted Ambar can be installed as a set of Docker images. Community Edition is available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication, though preserving full functionality. Also you can request a trial for Enterprise Edition, drop us an email on hello@ambar.cloud
 
 * [Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
@@ -65,7 +90,7 @@ Yes, Community Edition is forever free. We will NOT charge a penny from you to u
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. 
 
-### Which languages are supported by OCR?
+### Which languages are supported for search?
 Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK.
 If you miss your language, please create an issue on GitHub and we'll add it ASAP.
 
