@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v0.9.4-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v0.9.5-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
@@ -13,7 +13,7 @@ If you like Ambar please :star: it!
 
 ## What is Ambar
 
-Ambar is a simple document management system with automated crawling, OCR, deduplication and ultra-fast full-text search. Imagine having billion of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Ambar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful in terms of data amount and scaling. All the rocket-science is hidden behind the simple UI.
+Ambar is a document search engine with automated crawling, OCR, deduplication and ultra-fast full-text search. Imagine having billion of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Ambar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful in terms of data amount and scaling. All the rocket-science is hidden behind the simple UI.
 
 ## Features
 
@@ -27,7 +27,7 @@ Ambar is a simple document management system with automated crawling, OCR, dedup
 * Search By Date (when: yesterday, today, lastweek, etc)
 * Search By Size (size>1M)
 * Search As You Type
-* Supported language analyzers (Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK)
+* Supported language analyzers (Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK, Cn)
 
 ### Crawling
 * [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
