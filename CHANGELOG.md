@@ -1,6 +1,23 @@
 Change log
 ==========
 
+0.9.5 (2017-05-19)
+-------------------
+
+### New features
+
+- Major search improvement. Now search works on all the fields at once, this means if you search for "John" Ambar will search for it in files content, full names, sources and authors. This applies to phrase search and fuzzy search as well
+- New API methods added to allow users to use Ambar only as a content extractor (please refer to our [API documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md#files) for further information)
+- Chinese language analyzer added, use `ambar_cn` in `config.json` to enable it
+
+### Bugfixes
+- Minor UI and WebApi bugfixes (thanks for your feedback)
+
+### Migration from 0.9.4
+
+- Migration to this release requires reset of all your data, as we changed ElasticSearch mappings. Use this migration command: `sudo ./ambar.py reset && sudo ./ambar.py update`
+
+
 0.9.4 (2017-05-11)
 -------------------
 
