@@ -1,9 +1,13 @@
-# Ambar Web API v0.9.0
+# Ambar Web API v0.9.5
 
 Ambar Web API documentation
 
 - [Files](#files)
+	- [Get Meta by Meta Id](#get-meta-by-meta-id)
+	- [Get File Source by Meta Id](#get-file-source-by-meta-id)
+	- [Get Parsed Text From File by Meta Id](#get-parsed-text-from-file-by-meta-id)
 	- [Get File Content by Secure Uri](#get-file-content-by-secure-uri)
+	- [Get Parsed Text by Secure Uri](#get-parsed-text-by-secure-uri)
 	- [Upload File](#upload-file)
 	
 - [Search](#search)
@@ -24,11 +28,95 @@ Ambar Web API documentation
 
 # Files
 
+## Get Meta by Meta Id
+
+
+
+	GET api/files/direct/:metaId/meta
+
+
+### Success Response
+
+HTTP/1.1 200 OK     
+
+```
+Octet-Stream
+```
+### Error Response
+
+HTTP/1.1 404 Not Found
+
+```
+File meta or content not found
+```
+## Get File Source by Meta Id
+
+
+
+	GET api/files/direct/:metaId/source
+
+
+### Success Response
+
+HTTP/1.1 200 OK     
+
+```
+Octet-Stream
+```
+### Error Response
+
+HTTP/1.1 404 Not Found
+
+```
+File meta or content not found
+```
+## Get Parsed Text From File by Meta Id
+
+
+
+	GET api/files/direct/:metaId/text
+
+
+### Success Response
+
+HTTP/1.1 200 OK     
+
+```
+Octet-Stream
+```
+### Error Response
+
+HTTP/1.1 404 Not Found
+
+```
+File meta or content not found
+```
 ## Get File Content by Secure Uri
 
 
 
 	GET api/files/:uri
+
+
+### Success Response
+
+HTTP/1.1 200 OK     
+
+```
+Octet-Stream
+```
+### Error Response
+
+HTTP/1.1 404 Not Found
+
+```
+File meta or content not found
+```
+## Get Parsed Text by Secure Uri
+
+
+
+	GET api/files/:uri/text
 
 
 ### Success Response
@@ -69,6 +157,7 @@ HTTP/1.1 200 OK
 
 ```
 HTTP/1.1 200 OK
+Json format: { metaId: xxxxx }
 ```
 ### Error Response
 
@@ -142,14 +231,13 @@ HTTP/1.1 200 OK
           "thumb_available": false,
           "state": "processed",
           "title": "",
-          "type": "text/plain; charset=windows-1252"
-      },
-      "highlight": {
-          "content.text": [
-          "taking no notice of the grain. <br/>The Mule which had been robbed and wounded bewailed his<br/>misfortunes. The other replied, \"I am indeed glad that I was<br/>thought so little of, for I have lost nothing, nor am I hurt with<br/>any wound.\" <br/>The Viper and the File <br/>A LION, entering the workshop of a <em>smith</em>, sought from the tools<br/>the means of satisfying his hunger. He more particularly<br/>addressed himself to a File, and asked of him the favor of a<br/>meal. The File replied, \"You must indeed be a simple-minded<br/>fellow if you expect to get anything from me, who am accustomed<br/>to take from everyone, and",
+          "type": "text/plain; charset=windows-1252"           
+          "highlight": {
+              "text": [
+                  "taking no notice of the grain. <br/>The Mule which had been robbed and wounded bewailed his<br/>misfortunes. The other replied, \"I am indeed glad that I was<br/>thought so little of, for I have lost nothing, nor am I hurt with<br/>any wound.\" <br/>The Viper and the File <br/>A LION, entering the workshop of a <em>smith</em>, sought from the tools<br/>the means of satisfying his hunger. He more particularly<br/>addressed himself to a File, and asked of him the favor of a<br/>meal. The File replied, \"You must indeed be a simple-minded<br/>fellow if you expect to get anything from me, who am accustomed<br/>to take from everyone, and",
           "Aesop, by some strange accident it seems to have entirely<br/>disappeared, and to have been lost sight of. His name is<br/>mentioned by Avienus; by Suidas, a celebrated critic, at the<br/>close of the eleventh century, who gives in his lexicon several<br/>isolated verses of his version of the fables; and by <em>John</em><br/>Tzetzes, a grammarian and poet of Constantinople, who lived<br/>during the latter half of the twelfth century. Nevelet, in the<br/>preface to the volume which we have described, points out that<br/>the Fables of Planudes could not be the work of Aesop, as they<br/>contain a reference in two places to \"Holy"
-          ]
-      }
+              ]
+          }           
       }
   ],
   "took": 438.818418
@@ -191,7 +279,7 @@ HTTP/1.1 200 OK
 ```
 {
   "highlight": {
-    "content.text": [
+    "text": [
       "Aesop, by some strange accident it seems to have entirely<br/>disappeared, and to have been lost sight of. His name is<br/>mentioned by Avienus; by Suidas, a celebrated critic, at the<br/>close of the eleventh century, who gives in his lexicon several<br/>isolated verses of his version of the fables; and by <em>John</em><br/>Tzetzes, a grammarian and poet of Constantinople, who lived<br/>during the latter half of the twelfth century. Nevelet, in the<br/>preface to the volume which we have described, points out that<br/>the Fables of Planudes could not be the work of Aesop, as they<br/>contain a reference in two places to \"Holy"
     ]
   }
