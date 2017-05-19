@@ -1,13 +1,11 @@
-[![Version](https://img.shields.io/badge/Version-v0.9.3-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v0.9.4-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
-Ambar: Simple Document Management
+Ambar: Document Search System
 ================================
 
 If you like Ambar please :star: it!
-
-Other Languages: [Polish](https://github.com/RD17/ambar/blob/master/README_PL.md)
 
 [Landing Page](https://ambar.cloud) | [Cloud](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
