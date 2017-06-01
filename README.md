@@ -44,7 +44,7 @@ Ambar is a document search engine with automated crawling, OCR, deduplication an
 * OCR over images
 * Email messages with attachments
 * Adobe PDF (with OCR)
-* OCR languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, CJK, Cn
+* OCR languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld
 * OpenOffice documents
 * RTF, Plaintext
 * HTML / XHTML
