@@ -27,7 +27,7 @@ Ambar is a document search engine with automated crawling, OCR, deduplication an
 * Search By Date (when: yesterday, today, lastweek, etc)
 * Search By Size (size>1M)
 * Search As You Type
-* Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK 'CJK'
+* Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK 'ambar_cjk'
 
 ### Crawling
 * [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
