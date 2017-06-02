@@ -5,6 +5,8 @@
 Ambar: Proste Zarządzanie Dokumentami
 ================================
 
+**OUTDATED - USE README.MD AS MANUAL**
+
 Jeśli Ambar Ci się podoba, daj :star:!
 
 [Wstęp](https://ambar.cloud) | [Chmura](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
