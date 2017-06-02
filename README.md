@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v0.9.5-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v0.10.0-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
 
@@ -26,6 +26,7 @@ Ambar is a document search engine with automated crawling, OCR, deduplication an
 * Search By File Path (filename:\*.txt)
 * Search By Date (when: yesterday, today, lastweek, etc)
 * Search By Size (size>1M)
+* Search By Tags (tags:ocr)
 * Search As You Type
 * Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK `ambar_cjk`
 
@@ -35,7 +36,6 @@ Ambar is a document search engine with automated crawling, OCR, deduplication an
 * [Mail Crawling](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
 * [Dropbox Crawling](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
 * Scheduled Crawling (Cron schedule syntax)
-* Files Deduplication
 
 ### Content Extraction
 * Extract content from large files (>30M)
@@ -53,6 +53,8 @@ Ambar is a document search engine with automated crawling, OCR, deduplication an
 ### General
 [Ambar features overview (Vimeo)](https://vimeo.com/202204412)
 
+* Files Tagging
+* Hiding Irrelevant Search Results
 * Files Preview (with Google Docs View)
 * Real-Time Statistics
 * Web UI
@@ -88,14 +90,14 @@ Yes, almost every Ambar's module is published on GitHub under [Fair Source Licen
 Yes, Community Edition is forever free. We will NOT charge a penny from you to use it. Basic cloud account is also forever free.
 
 ### Does it perform OCR? 
-Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. 
+Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
 
 ### Which languages are supported for OCR?
 Supported languages: Eng, Rus, Ita, Deu, Fra, Spa.
 If you miss your language, please create an issue on GitHub and we'll add it ASAP.
 
 ### Does it support tagging?
-Nope, we working on it. As a workaround you can use folders hierarchy as a set of tags.
+Yes!
 
 ### What about searching in PDF?
 Yes, it can search through any PDF, even badly encoded or with scans inside. We did our best to make search over any kind of pdf document smooth.

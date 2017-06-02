@@ -1,6 +1,49 @@
 Change log
 ==========
 
+0.10.0 (2017-06-02)
+-------------------
+
+### New features
+
+#### Tags:
+ - Add tags just by typing them right into a search result with a smart autosuggest. Tags are separated by comma or `Enter` key 
+ 
+ ![Ambar Tags Adding](https://habrastorage.org/web/22b/9c3/0e7/22b9c30e7be14f94983bc46007280aa9.png)
+
+ - Search by one or several tags with `tags:ocr,receipt` query
+
+![Ambar Search By Tag](https://habrastorage.org/web/bd5/a5b/928/bd5a5b928b6f4617a50c249a6799d0c7.png)
+
+ - `ocr` tag is automatically added for ocr-proccessed files, more auto tags are coming soon
+  
+#### Files removing:
+
+ - Now you can hide irrelevant search results with *Hide* button, so they never display again in your search results 
+
+ ![Hide File Button](https://habrastorage.org/web/7fb/d0b/7d9/7fbd0b7d96ce4d3286f51132ac0bde72.png)
+ 
+ - You can search through hidden files by `show:hidden` query
+ 
+ ![Search Through Hidden Files](https://habrastorage.org/web/02e/351/0d5/02e3510d5e2746faac226aa0dae6a604.png)
+ 
+ - You can restore hidden files with *Restore* button
+ 
+#### UI:
+ - Last modified date is now displayed in a human readable format
+ - Search result card design was significantly changed
+ - Main menu was placed on the right side of the header
+
+### Bugfixes
+
+ - Fixed igonoring `auth:none` in `config.json` bug
+ - Other minor bug fixes
+
+### Migration from 0.9.5
+
+ - Before updating your Ambar to this version, you need to reset all the data in your Ambar with `sudo ./ambar.py reset`. After reset run `sudo ./ambar.py update` to get the latest version. 
+
+
 0.9.5 (2017-05-19)
 -------------------
 
