@@ -13,7 +13,7 @@ If you like Ambar please :star: it!
 
 ## What is Ambar
 
-Ambar is a document search engine with automated crawling, OCR, deduplication and ultra-fast full-text search. Imagine having billion of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Ambar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful in terms of data amount and scaling. All the rocket-science is hidden behind the simple UI.
+Ambar is a document search and management system with automated crawling, OCR, deduplication and ultra-fast full-text search. Imagine having billions of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Ambar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful. All the rocket-science is hidden behind the simple UI.
 
 ## Features
 
