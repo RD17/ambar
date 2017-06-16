@@ -13,7 +13,14 @@ If you like Ambar please :star: it!
 
 ## What is Ambar
 
-Ambar is a document search and management system with automated crawling, OCR, deduplication and ultra-fast full-text search. Imagine having billions of files in different formats like xls, doc, txt, pdf, ppt, etc..., in any encoding. Ambar securely stores them and gives you an ability to search through their content and metadata in milliseconds. It is very lightweight, simple and intuitive, but yet very fast and powerful. All the rocket-science is hidden behind the simple UI.
+Ambar is an open-source document search and management system with automated crawling, OCR, tagging and instant full-text search.
+
+Ambar defines the new way to manage your documents out of the box:
+
+- Ingest documents from any source
+- Find documents and images instantly with Google-like search
+- Manage your documents with tags, hide irrelevant search results
+- Download or share links to your documents, even if they've been deleted from the source
 
 ## Features
 
@@ -31,6 +38,7 @@ Ambar is a document search and management system with automated crawling, OCR, d
 * Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK `ambar_cjk`
 
 ### Crawling
+
 * [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
 * [FTP Crawling](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
 * [Mail Crawling](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
@@ -61,13 +69,16 @@ Ambar is a document search and management system with automated crawling, OCR, d
 * [REST API](https://github.com/RD17/ambar/blob/master/API_DOC.md)
 * Multiple user accounts (Only EE)
 
+## Editions
+There are two editions available: Community and Enterprise. Enterprise Edition is a full featured document search and management system that can handle terabytes of data.
+
+Community Edition is a scaled down, single user version of Enterprise Edition with limited number of pipelines and crawlers, though preserving the full functionality. You are welcome to use Ambar Community Edition for both personal and commercial purposes, at no cost.
+
 ## Installation
 
-Self-Hosted Ambar can be installed as a set of Docker images. Community Edition is available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication, though preserving full functionality. Also you can request a trial for Enterprise Edition, drop us an email on hello@ambar.cloud
+Installation is straightforward. Turn on your Linux machine and follow our [step-by-step installation guide](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/).
 
-* [Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
-
-Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
+*Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
 ## How it Works
 
