@@ -1,17 +1,11 @@
 [![Version](https://img.shields.io/badge/Version-v0.10.0-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ambar/ambar)
+[![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
 Ambar: Document Search System
 ================================
 
-If you like Ambar please :star: it!
-
-[Landing Page](https://ambar.cloud) | [Blog](https://blog.ambar.cloud)
-
 ![Ambar Search](https://ambar.cloud/images/search.gif)
-
-## What is Ambar
 
 Ambar is an open-source document search and management system with automated crawling, OCR, tagging and instant full-text search.
 
