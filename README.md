@@ -9,7 +9,7 @@ If you like Ambar please :star: it!
 
 [Landing Page](https://ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
-![Ambar](https://habrastorage.org/files/947/a32/de7/947a32de7156478094e3e12c16e8366c.jpg)
+![Ambar Search](https://ambar.cloud/images/search.gif)
 
 ## What is Ambar
 
@@ -21,6 +21,8 @@ Ambar defines the new way to manage your documents out of the box:
 - Find documents and images instantly with Google-like search
 - Manage your documents with tags, hide irrelevant search results
 - Download or share links to your documents, even if they've been deleted from the source
+
+![Ambar UI](https://ambar.cloud/images/ambar_ui.png)
 
 ## Features
 
