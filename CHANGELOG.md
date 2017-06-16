@@ -1,6 +1,28 @@
 Change log
 ==========
 
+1.0.0 (2017-06-16)
+-------------------
+
+It's time for 1.0.0!
+
+### New features
+
+#### Side Panel
+ - Introducing side panel: now you can refine your search just by a few clicks. 
+ With side panel you can filter documents by time range, source, size or quicly view hidden files.
+ 
+ ![Ambar Updated UI](https://habrastorage.org/web/bee/39a/8b7/bee39a8b7c45469e91f0bbc9769ae16c.png)
+  
+### Bugfixes
+
+ - Fixed igonoring `auth:none` in `config.json` bug (yes, again, sorry)
+ - Other minor bug fixes
+
+### Migration from 0.10.0
+
+- To update your Ambar to latest version use `wget -O ambar.py https://static.ambar.cloud/ambar.py && chmod +x ./ambar.py && sudo ./ambar.py update`.
+
 0.10.0 (2017-06-02)
 -------------------
 
