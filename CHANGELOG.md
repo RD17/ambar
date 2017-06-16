@@ -10,7 +10,7 @@ It's time for 1.0.0!
 
 #### Side Panel
  - Introducing side panel: now you can refine your search just by a few clicks. 
- With side panel you can filter documents by time range, source, size or quicly view hidden files.
+ With side panel you can filter documents by time range, source, size or quickly view hidden files
  
  ![Ambar Updated UI](https://habrastorage.org/web/bee/39a/8b7/bee39a8b7c45469e91f0bbc9769ae16c.png)
   
