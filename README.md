@@ -16,8 +16,6 @@ Ambar defines the new way to manage your documents out of the box:
 - Manage your documents with tags, hide irrelevant search results
 - Download or share links to your documents, even if they've been deleted from the source
 
-![Ambar UI](https://ambar.cloud/images/ambar_ui.png?12321)
-
 ## Features
 
 ### Search
