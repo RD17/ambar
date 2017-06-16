@@ -7,7 +7,7 @@ Ambar: Document Search System
 
 If you like Ambar please :star: it!
 
-[Landing Page](https://ambar.cloud) | [Cloud](https://app.ambar.cloud) | [Blog](https://blog.ambar.cloud)
+[Landing Page](https://ambar.cloud) | [Blog](https://blog.ambar.cloud)
 
 ![Ambar](https://habrastorage.org/files/947/a32/de7/947a32de7156478094e3e12c16e8366c.jpg)
 
@@ -38,6 +38,7 @@ Ambar is a document search and management system with automated crawling, OCR, d
 * Scheduled Crawling (Cron schedule syntax)
 
 ### Content Extraction
+
 * Extract content from large files (>30M)
 * ZIP archives
 * MS Office documents (Word, Excel, Powerpoint, Visio, Publisher)
@@ -51,7 +52,6 @@ Ambar is a document search and management system with automated crawling, OCR, d
 * Multithread processing (Only EE)
 
 ### General
-[Ambar features overview (Vimeo)](https://vimeo.com/202204412)
 
 * Files Tagging
 * Hiding Irrelevant Search Results
@@ -62,13 +62,7 @@ Ambar is a document search and management system with automated crawling, OCR, d
 * Multiple user accounts (Only EE)
 
 ## Installation
-### Ambar Cloud
-It's full-featured latest Ambar, hosted on our servers. All the accounts and data is secured and carefully stored. You can connect Ambar directly to your Dropbox account and enjoy Ambar powerful search over your Dropbox. Trying Ambar Cloud is a perfect way to get the taste what Ambar is.
 
- * [Signup](https://app.ambar.cloud/signup)
- * That's it!
- 
-### Self-Hosted Ambar
 Self-Hosted Ambar can be installed as a set of Docker images. Community Edition is available for free. It's a tiny version of Enterprise Edition with limited number of pipelines and crawlers and disabled authentication, though preserving full functionality. Also you can request a trial for Enterprise Edition, drop us an email on hello@ambar.cloud
 
 * [Installation Instructions](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/)
@@ -87,7 +81,7 @@ Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)
 Yes, almost every Ambar's module is published on GitHub under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt)
 
 ### Is it free?
-Yes, Community Edition is forever free. We will NOT charge a penny from you to use it. Basic cloud account is also forever free.
+Yes, Community Edition is forever free. We will NOT charge a penny from you to use it.
 
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
@@ -112,7 +106,7 @@ We're working on it. Be patient.
 It's limited by amount of RAM on your machine, typically 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
 
 ### What is the difference between Ambar CE and Ambar EE?
-Basically Ambar CE is a downscaled Ambar EE. For more details check [this](https://ambar.cloud/#get-invite)
+Basically Ambar CE is a downscaled Ambar EE. Check comparison on our [landing page](https://ambar.cloud).
 
 ### Can anyone else see my documents?
 Nope, check our Privacy Policy.
