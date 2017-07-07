@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
-Ambar: Document Search System
+:mag: Ambar: Document Search System
 ================================
 
 ![Ambar Search](https://ambar.cloud/images/search.gif)
