@@ -9,32 +9,38 @@ Sunny summer days are over, so we are back to work. 
 ### New features
 
 #### Tags
- - We completely removed sources from UI and replaced them with tags
- - Tags are on the left sidebar
+
+ - We completely removed sources from UI and replaced them with tags
+ - Tags are on the left sidebar
 
 #### Autotags
- - IP, IPv6, IPv4
- - URI, URI-HTTP, URI-HTTPS, URI-FTP
- - Archive, Archive-Zip, Image
- - EMail
- - Phone, Phone-RU
+ 
+ - IP, IPv6, IPv4
+ - URI, URI-HTTP, URI-HTTPS, URI-FTP
+ - Archive, Archive-Zip, Image
+ - EMail
+ - Phone, Phone-RU
 
 #### Files removing
- - "Hidden Files" are now called "Removed Files". You can search through removed files by show:removed query
+
+ - "Hidden Files" are now called "Removed Files". You can search through removed files by show:removed query
 
 #### UI
- - Added Table view for search results. With it you can easily analyze large number of search results and tune your search query
+
+ - Added Table view for search results. With it you can easily analyze large number of search results and tune your search query
 
 #### Crawlers
- - Added FTPS crawler
+
+ - Added FTPS crawler
 
 ### Bugfixes
- - Added ability to specify IP address and port during Ambar installation
- - Minor bugfixes
+
+ - Added ability to specify IP address and port during Ambar installation
+ - Minor bugfixes
 
 ### Migration from 1.0.0
 
-- To update your Ambar to latest version use `sudo ./ambar.py update`
+ - To update your Ambar to latest version use `sudo ./ambar.py update`
 
 1.0.0 (2017-06-16)
 -------------------
