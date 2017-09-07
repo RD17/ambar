@@ -10,8 +10,8 @@ Sunny summer days are over, so we are back to work. 
 
 #### Tags
 
- - We completely removed sources from UI and replaced them with tags
- - Tags are on the left sidebar
+ - We completely removed the sources panel from the UI and replaced it with tags
+ - Tags panel is on the left sidebar
 
 #### Autotags
  
@@ -31,7 +31,7 @@ Sunny summer days are over, so we are back to work. 
 
 #### Crawlers
 
- - Added FTPS crawler
+ - Added FTPS crawler, just set `type: ftps`
 
 ### Bugfixes
 
