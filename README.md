@@ -34,7 +34,7 @@ Ambar defines the new way to manage your documents out of the box:
 ### Crawling
 
 * [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
-* [FTP Crawling](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
+* [FTP/FTPS Crawling](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
 * [Mail Crawling](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
 * [Dropbox Crawling](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
 * Scheduled Crawling (Cron schedule syntax)
