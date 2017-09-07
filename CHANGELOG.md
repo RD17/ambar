@@ -34,7 +34,7 @@ Sunny summer days are over, so we are back to work. 
 
 ### Migration from 1.0.0
 
-- To update your Ambar to latest version use `sudo ./ambar.py update`.
+- To update your Ambar to latest version use `sudo ./ambar.py update`
 
 1.0.0 (2017-06-16)
 -------------------
