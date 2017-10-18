@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v1.0.0-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v1.2.0-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
@@ -14,6 +14,7 @@ Ambar defines the new way to manage your documents out of the box:
 - Ingest documents from any source
 - Find documents and images instantly with Google-like search
 - Manage your documents with tags, hide irrelevant search results
+- Auto tagging & named entitites recognition
 - Download or share links to your documents, even if they've been deleted from the source
 
 ## Features
