@@ -1,4 +1,4 @@
-# Ambar Web API v0.9.5
+# Ambar Web API v1.2.0
 
 Ambar Web API documentation
 
@@ -14,7 +14,8 @@ Ambar Web API documentation
 	
 - [Search](#search)
 	- [Search For Documents By Query](#search-for-documents-by-query)
-	- [Retrieve File Highlight by Query and SHA](#retrieve-file-highlight-by-query-and-sha)
+	- [Retrieve File Highlight by Query and fileId](#retrieve-file-highlight-by-query-and-fileid)
+	- [Retrieve Full File Highlight by Query and fileId](#retrieve-full-file-highlight-by-query-and-fileid)
 	
 - [Sources](#sources)
 	- [Get Available Sources](#get-available-sources)
@@ -164,9 +165,9 @@ File meta or content not found
 ```
 ## Upload File
 
-<p>New source with description <code>Automatically created on UI upload</code> will be created if source didn't exist.</p>
+<p>New source named <code>uiupload</code> with description <code>Automatically created on UI upload</code> will be created if source didn't exist.</p>
 
-	POST api/files/:sourceId/:filename
+	POST api/files/uiupload/:filename
 
 ### Headers
 
@@ -181,7 +182,7 @@ Upload File test.txt
 
 ```
 curl -X POST \
-http://ambar_api_address/api/files/Default/test.txt \
+http://ambar_api_address/api/files/uiupload/test.txt \
 -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \  
 -F file=@test.txt
 ```
@@ -351,11 +352,11 @@ HTTP/1.1 400 BadRequest
 ```
 HTTP/1.1 400 BadRequest
 ```
-## Retrieve File Highlight by Query and SHA
+## Retrieve File Highlight by Query and fileId
 
 <p>This method is useful for getting higlights of large files &gt; 30 MB</p>
 
-	GET api/search/:sha
+	GET api/search/:fileId
 
 ### Headers
 
@@ -368,12 +369,12 @@ HTTP/1.1 400 BadRequest
 
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
-| sha			| String			|  <p>file SHA</p>							|
+| fileId			| String			|  <p>file fileId</p>							|
 | query			| String			|  <p>query string</p>							|
 
 ### Examples
 
-Retrieve Higlights for File with SHA `318be2290125e0a6cfb7229133ba3c4632068ae04942ed5c7c660718d9d41eb3`
+Retrieve Higlights for File with fileId `318be2290125e0a6cfb7229133ba3c4632068ae04942ed5c7c660718d9d41eb3`
 
 ```
 curl -i http://ambar:8004/api/search/318be2290125e0a6cfb7229133ba3c4632068ae04942ed5c7c660718d9d41eb3?query=John
@@ -391,6 +392,48 @@ HTTP/1.1 200 OK
     ]
   }
 }
+```
+### Error Response
+
+HTTP/1.1 400 BadRequest
+
+```
+HTTP/1.1 400 BadRequest
+```
+## Retrieve Full File Highlight by Query and fileId
+
+<p>This method is useful for getting higlights of large files &gt; 30 MB</p>
+
+	GET api/search/:fileId/full
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| ambar-email			| String			|  <p>User email.</p>							|
+| ambar-email-token			| String			|  <p>User token.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| fileId			| String			|  <p>file fileId</p>							|
+| query			| String			|  <p>query string</p>							|
+
+### Examples
+
+Retrieve Full Higlight for File with fileId `318be2290125e0a6cfb7229133ba3c4632068ae04942ed5c7c660718d9d41eb3`
+
+```
+curl -i http://ambar:8004/api/search/318be2290125e0a6cfb7229133ba3c4632068ae04942ed5c7c660718d9d41eb3/full?query=John
+```
+
+### Success Response
+
+HTTP/1.1 200 OK
+
+```
+Aesop, by some strange accident it seems to have entirely<br/>disappeared, and to have been lost sight of. His name is<br/>mentioned by Avienus; by Suidas, a celebrated critic, at the<br/>close of the eleventh century, who gives in his lexicon several<br/>isolated verses of his version of the fables; and by <em>John</em><br/>Tzetzes, a grammarian and poet of Constantinople, who lived<br/>during the latter half of the twelfth century. Nevelet, in the<br/>preface to the volume which we have described, points out that<br/>the Fables of Planudes could not be the work of Aesop, as they<br/>contain a reference in two places to Holy
 ```
 ### Error Response
 
@@ -507,7 +550,7 @@ HTTP/1.1 200 OK
 
 
 
-	DELETE api/tags/:fileId/:tagName
+	DELETE api/tags/:fileId/:tagType/:tagName
 
 ### Headers
 
@@ -521,6 +564,7 @@ HTTP/1.1 200 OK
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | fileId			| String			|  <p>File Id to delete tag from.</p>							|
+| tagType			| String			|  <p>Tag type to delete.</p>							|
 | tagName			| String			|  <p>Tag name to delete.</p>							|
 
 ### Success Response
@@ -582,7 +626,7 @@ HTTP/1.1 200 OK
 
 
 
-	POST api/tags/:fileId/:tagName
+	POST api/tags/:fileId/:tagType/:tagName
 
 ### Headers
 
@@ -596,6 +640,7 @@ HTTP/1.1 200 OK
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | fileId			| String			|  <p>File Id to add tag to.</p>							|
+| tagType			| String			|  <p>Tag type to add.</p>							|
 | tagName			| String			|  <p>Tag name to add.</p>							|
 
 ### Success Response

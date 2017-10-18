@@ -1,6 +1,23 @@
 Change log
 ==========
 
+1.2.0 (2017-10-18)
+-------------------
+
+Hello everyone!
+
+Ambar 1.2.0 is out! 
+
+### What's new?
+
+- Now you can preview any file in Ambar
+- If file contains some sensible data like emails, tax ids, vehicle ids, etc - Ambar recognizes and highlights them. We call this sensible data "named entities".
+- You can search by named entities using query `entitites:"hello@ambar.cloud"`
+- We added tags coloring depending on tag's type
+
+Before updating your Ambar to this version, you need to reset all the data in your Ambar with `sudo ./ambar.py reset`. After reset run `sudo ./ambar.py update` to get the latest version. 
+
+
 1.1.0 (2017-09-07)
 -------------------
 
