@@ -1,6 +1,26 @@
 Change log
 ==========
 
+1.3.0 (2017-11-17)
+-------------------
+
+We're happy to announce Ambar 1.3.0 is out!
+
+### What's new:
+
+- We added new ways to visualize your search results: Folders View & Statistics View. Both are live and update as you type your search query.
+    - Folders view allows you to quickly navigate through indexed files tree and preview results.
+      ![Ambar Folders View](https://habrastorage.org/webt/ma/cq/lj/macqljqn-guhaqaad_ls6hfn2wc.png)
+    - Statistics view allows you to easily analyze huge search results and have a full vision of your data
+      ![Ambar Statistics View](https://habrastorage.org/webt/ef/27/rr/ef27rrooyilbzemlrlapwtsyws8.png)
+ - Many of you asked us to add ui localizations... Thanks to one of our customers who made it possible. As for now there are two options: Russian and English, change `uiLang` in your `config.json`. If you want to add your own localization, please contact us on hello@ambar.cloud. 
+ - If you don't want to preserve original files in Ambar, you can disable it in your config.json. Doing this highly reduces Ambar storage space requirements.
+ - Ambar management script and config file were optimized. 
+
+### Migration from 1.2.0:
+ 
+Unfortunately, this version is not backwards compatible. So, you have to perform a clean install.
+
 1.2.0 (2017-10-18)
 -------------------
 

@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v1.2.0-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v1.3.0-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
@@ -15,7 +15,6 @@ Ambar defines the new way to manage your documents out of the box:
 - Find documents and images instantly with Google-like search
 - Manage your documents with tags, hide irrelevant search results
 - Auto tagging & named entitites recognition
-- Download or share links to your documents, even if they've been deleted from the source
 
 ## Features
 
@@ -56,10 +55,10 @@ Ambar defines the new way to manage your documents out of the box:
 
 ### General
 
-* Files Tagging
+* Files Tagging (Auto tagging as well)
+* Named Entitites
 * Hiding Irrelevant Search Results
-* Files Preview (with Google Docs View)
-* Real-Time Statistics
+* Files Preview
 * Web UI
 * [REST API](https://github.com/RD17/ambar/blob/master/API_DOC.md)
 * Multiple user accounts (Only EE)
@@ -106,7 +105,7 @@ Yes, it can search through any PDF, even badly encoded or with scans inside. We 
 Yes, please create an issue on GitHub.
 
 ### Are you going to add UI localizations?
-We're working on it. Be patient.
+As for now there are two options: Russian and English, change `uiLang` in your `config.json`. If you want to add your own localization, please contact us on hello@ambar.cloud. 
 
 ### What is the maximum file size it can handle?
 It's limited by amount of RAM on your machine, typically 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
@@ -118,7 +117,7 @@ Basically Ambar CE is a downscaled Ambar EE. Check comparison on our [landing pa
 Nope, check our Privacy Policy.
 
 ### I have a problem what should I do?
-Submit an issue or chat with us on https://ambar.cloud
+Submit an issue
 
 ## Change Log
 [Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
