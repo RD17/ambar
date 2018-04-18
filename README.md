@@ -53,7 +53,7 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 ## Installation
 
-Just follow the [instruction instruction](https://github.com/RD17/ambar/blob/master/install.md)
+Just follow the [instruction instruction](https://github.com/RD17/ambar/blob/master/Install.md)
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
@@ -96,7 +96,7 @@ It's limited by amount of RAM on your machine, typically it's 500MB. It's an awe
 Request a dedicated support session by mailing us on hello@ambar.cloud
 
 ## Change Log
-[Change Log](https://github.com/RD17/ambar/blob/master/changelog.md)
+[Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
 
 ## Privacy Policy
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/privacy-policy.md)
