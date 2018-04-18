@@ -1,20 +1,20 @@
-[![Version](https://img.shields.io/badge/Version-v1.3.0-brightgreen.svg)](https://ambar.cloud)
-[![License](https://img.shields.io/badge/License-Fair%20Source%20v0.9-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
+[![Version](https://img.shields.io/badge/Version-v2.0.0rc-brightgreen.svg)](https://ambar.cloud)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
-:mag: Ambar: Document Search System
+:mag: Ambar: Document Search Engine
 ================================
 
 ![Ambar Search](https://ambar.cloud/images/search.gif)
 
-Ambar is an open-source document search and management system with automated crawling, OCR, tagging and instant full-text search.
+Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
-Ambar defines the new way to manage your documents out of the box:
-
-- Ingest documents from any source
-- Find documents and images instantly with Google-like search
-- Manage your documents with tags, hide irrelevant search results
-- Auto tagging & named entitites recognition
+Ambar defines the new way to implement a full-text document search into yor workflow:
+- Easily deploy Ambar with a single `docker-compose` file
+- Perform a Google-like search through your documents and images contents
+- Ambar supports all popular document formats, performs OCR if needed
+- Tag your documents
+- Use a simple REST Api to integrate Ambar into your workflow
 
 ## Features
 
@@ -33,16 +33,14 @@ Ambar defines the new way to manage your documents out of the box:
 
 ### Crawling
 
-* [SMB Crawling](https://blog.ambar.cloud/advanced-ambar-usage-crawling-your-own-shared-folders/)
-* [FTP/FTPS Crawling](https://blog.ambar.cloud/crawling-and-searching-ftp-folder-with-ambar/)
-* [Mail Crawling](https://blog.ambar.cloud/crawling-and-searching-email-inbox-with-ambar/)
-* [Dropbox Crawling](https://blog.ambar.cloud/how-to-search-through-your-dropbox-files-content/)
-* Scheduled Crawling (Cron schedule syntax)
+Ambar 2.0 only supports local fs crawling, if you need to crawl an SMB share of an FTP location - just mount it using standard linux tools.
+Crawling is automatic, no schedule is needed since the crawler monitors fs events and automatically processes new files.
 
 ### Content Extraction
 
-* Extract content from large files (>30M)
+* Ambar supports large files (>30MB)
 * ZIP archives
+* Mail archives (PST)
 * MS Office documents (Word, Excel, Powerpoint, Visio, Publisher)
 * OCR over images
 * Email messages with attachments
@@ -53,47 +51,37 @@ Ambar defines the new way to manage your documents out of the box:
 * HTML / XHTML
 * Multithread processing (Only EE)
 
-### General
-
-* Files Tagging (Auto tagging as well)
-* Named Entitites
-* Hiding Irrelevant Search Results
-* Files Preview
-* Web UI
-* [REST API](https://github.com/RD17/ambar/blob/master/API_DOC.md)
-* Multiple user accounts (Only EE)
-
-## Editions
-There are two editions available: Community and Enterprise. Enterprise Edition is a full featured document search and management system that can handle terabytes of data.
-
-Community Edition is a scaled down, single user version of Enterprise Edition with limited number of pipelines and crawlers, though preserving the full functionality. You are welcome to use Ambar Community Edition for both personal and commercial purposes, at no cost.
-
 ## Installation
 
-Installation is straightforward. Turn on your Linux machine and follow our [step-by-step installation guide](https://blog.ambar.cloud/ambar-installation-step-by-step-guide-2/).
+Just follow the [instruction instruction](https://github.com/RD17/ambar/blob/master/install.md)
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
-## How it Works
+## Support
 
-* [Under the Hood](https://blog.ambar.cloud/ambar-under-the-hood/)
-* [REST API Documentation](https://github.com/RD17/ambar/blob/master/API_DOC.md)
-* [Management Script](https://blog.ambar.cloud/ambar-management-script-full-description/)
-* The Source Code is freely available under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt). ([Frontend](https://github.com/RD17/ambar-frontend), [Crawler](https://github.com/RD17/ambar-crawler), [ElasticSearch](https://github.com/RD17/ambar-es), [Rabbit](https://github.com/RD17/ambar-rabbit), [Mongo](https://github.com/RD17/ambar-mongodb), [Installer](https://github.com/RD17/ambar-install))
+Ambar is fully open-source and free to use, however you can get a dedicated support from our team for a fee:
+
+- Install & Configure Ambar on your machine - 999$
+- Mount external data source - 99$
+- Add automatic tagging rule - 299$
+- Add password protection to Ambar UI - 299$
+- Add custom file extractor - 599$
+- Dedicated support - 199$/hour
+- Custom features development - 299$/hour
 
 ## FAQ
 ### Is it open-source?
-Yes, almost every Ambar's module is published on GitHub under [Fair Source License 1](https://github.com/RD17/ambar/blob/master/License.txt)
+Yes, it's fully open-source now.
 
 ### Is it free?
-Yes, Community Edition is forever free. We will NOT charge a penny from you to use it.
+Yes, it is forever free.
 
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
 
 ### Which languages are supported for OCR?
 Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld.
-If you miss your language, please create a new issue and we'll add it ASAP.
+If you miss your language please contact us on hello@ambar.cloud.
 
 ### Does it support tagging?
 Yes!
@@ -101,34 +89,17 @@ Yes!
 ### What about searching in PDF?
 Yes, it can search through any PDF, even badly encoded or with scans inside. We did our best to make search over any kind of pdf document smooth.
 
-### I miss XXX language analyzer. Can you add it?
-Yes, please create an issue on GitHub.
-
-### Are you going to add UI localizations?
-As for now there are two options: Russian and English, change `uiLang` in your `config.json`. If you want to add your own localization, please contact us on hello@ambar.cloud. 
-
 ### What is the maximum file size it can handle?
-It's limited by amount of RAM on your machine, typically 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
-
-### What is the difference between Ambar CE and Ambar EE?
-Basically Ambar CE is a downscaled Ambar EE. Check comparison on our [landing page](https://ambar.cloud).
-
-### Can anyone else see my documents?
-Nope, check our Privacy Policy.
+It's limited by amount of RAM on your machine, typically it's 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
 
 ### I have a problem what should I do?
-Submit an issue
+Request a dedicated support session by mailing us on hello@ambar.cloud
 
 ## Change Log
-[Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
-
-## Contributors
-- [hartmch](https://github.com/hartmch)
-- [bdevelops](https://github.com/bdevelops)
+[Change Log](https://github.com/RD17/ambar/blob/master/changelog.md)
 
 ## Privacy Policy
-[Privacy Policy](https://github.com/RD17/ambar/blob/master/Privacy%20Policy.md)
+[Privacy Policy](https://github.com/RD17/ambar/blob/master/privacy-policy.md)
 
 ## License
-[Fair Source 1 License v0.9](https://github.com/RD17/ambar/blob/master/License.txt)
-
+[MIT License](https://github.com/RD17/ambar/blob/master/license.txt)

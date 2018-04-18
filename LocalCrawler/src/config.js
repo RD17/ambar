@@ -1,10 +1,10 @@
 const defaultConfig = {
 	"port": 8082,
 	"bodyLimit": "10mb",	
-	"crawlPath": "C:\\TEST",
+	"crawlPath": "C:\\Dropbox\\Development\\Git\\Ambar\\LocalCrawler\\node_modules",
 	"apiUrl": "http://ambar:8081",
 	"allowedFilesRegex": '(\\.doc[a-z]*$)|(\\.xls[a-z]*$)|(\\.txt$)|(\\.pst$)|(\\.csv$)|(\\.htm[a-z]*$)|(\\.ppt[a-z]*$)|(\\.pdf$)|(\\.msg$)|(\\.zip$)|(\\.eml$)|(\\.rtf$)|(\\.md$)|(\\.png$)|(\\.bmp$)|(\\.tif[f]*$)|(\\.jp[e]*g$)',
-	"name": "local_crawler",
+	"name": "nodemodules-crawler",
 	"maxFileSize": "30mb"
 }
 
