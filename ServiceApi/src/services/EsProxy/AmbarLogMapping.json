@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "number_of_shards": 10
+    },
+    "mappings": {
+        "ambar_log_record": {
+            "properties": {
+                "created_datetime": {
+                    "type": "date",
+                    "format": "yyyy-MM-dd HH:mm:ss.SSS"
+                },
+                "indexed_datetime": {
+                    "type": "date",
+                    "format": "yyyy-MM-dd HH:mm:ss.SSS"
+                },
+                "source_id": {
+                    "type": "keyword"
+                },
+                "dest_id": {
+                    "type": "keyword"
+                },
+                "type": {
+                    "type": "keyword"
+                },
+                "message": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}

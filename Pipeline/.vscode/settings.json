@@ -1,0 +1,4 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "yapf"
+}

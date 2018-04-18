@@ -1,0 +1,5 @@
+export const errorMessage = 'Oops... Something went wrong. Please reload the page'
+export const FOLDER_VIEW = 'FOLDER_VIEW'
+export const DETAILED_VIEW = 'DETAILED_VIEW'
+export const TABLE_VIEW = 'TABLE_VIEW'
+export const STATISTICS_VIEW = 'STATISTICS_VIEW'

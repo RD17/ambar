@@ -1,0 +1,19 @@
+.stampIcon:hover {    
+    filter: saturate(2);
+}
+
+.stampIcon:active{
+    filter: saturate(3);
+}
+
+.stampIconContainer {
+    cursor: pointer;
+}
+
+.rateUsText {
+    display: flex;
+    flex-direction: column;
+}
+.rateUsText p {    
+    margin-top: 0;
+}

@@ -1,0 +1,12 @@
+network.host: 0.0.0.0
+
+# this value is required because we set "network.host"
+# be sure to modify it appropriately for a production cluster deployment
+discovery.zen.minimum_master_nodes: 1
+
+http.max_content_length: 1024mb
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+node.ingest: false
+action.auto_create_index: false
+bootstrap.memory_lock: true

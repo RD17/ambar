@@ -1,0 +1,51 @@
+{
+  "name": "local-crawler",
+  "version": "0.1",
+  "description": "Crawler for local folders",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"yarn run lint && babel-node src\"",
+    "build": "yarn run lint && babel src -s -D -d dist",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint --ext js src"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "sourceMaps": true,
+    "retainLines": true
+  },
+  "author": "RD17",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^7.1.0",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.13.3",
+    "bytes": "^3.0.0",
+    "chokidar": "^2.0.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "express": "^4.13.3",
+    "idempotent-babel-polyfill": "^0.1.1",
+    "moment": "^2.15.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5",
+    "resource-router-middleware": "^0.5.1",
+    "whatwg-url": "^4.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  }
+}

@@ -1,0 +1,24 @@
+.statisticsCard {
+    width: 100%;   
+    margin: 10px;    
+}
+
+.statisticsCardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    align-items: stretch;
+}
+
+.fullWidth {
+    width:100%;
+}
+
+.statisticsCardTitle {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.link, .link:hover,.link:visited {
+    color: #00acc1;
+}

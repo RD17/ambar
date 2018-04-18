@@ -1,0 +1,60 @@
+.searchResultRowCard {
+    margin: 10px;
+}
+
+.searchResultRowCardTextContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+
+    em {
+        background-color: #fff6a9;
+        border: 1px solid #e6d9c4;
+        border-radius: 3px;
+        font-style: normal;
+    }
+}
+
+.searchResultRowCardTextDiv {
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.searchResultRowCardTextWithBorder {    
+    border-bottom: 1px solid #eeeeee;
+}
+
+.searchResultRowCardTextThumbnailContainer {
+    border-left: 1px solid #eeeeee;
+}
+
+.searchResultRowCardTextThumbnailImage {
+    max-width: 250px;    
+}
+
+.searchResultRowCardTextThumbnailImage:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px;
+    transition: box-shadow 0.1s linear;
+}
+
+.searchResultRowCardFooter {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.blurred {    
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none; 
+     user-select: none; 
+}
+
