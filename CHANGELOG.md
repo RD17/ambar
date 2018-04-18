@@ -1,6 +1,18 @@
 Change log
 ==========
 
+2.0.0rc (2018-04-18)
+-------------------
+
+Ambar 2.0.0rc is out!
+
+### What's new:
+
+- Ambar is fully open-source now under MIT license
+- Only local fs crawler is supported now
+- Ambar management script was removed and replaced by a single docker-compose file
+- Users and authentication were removed
+
 1.3.0 (2017-11-17)
 -------------------
 

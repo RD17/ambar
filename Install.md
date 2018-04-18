@@ -34,7 +34,7 @@ To keep these setting after reboot you should add them into your `/etc/sysctl.co
 
 # Create docker-compose file
 
-Download latest [docker-compose file](...) from our GitHub.
+Download latest [docker-compose file](https://github.com/RD17/ambar/blob/master/docker-compose.yml) from our GitHub.
 
 Then modify it:
 
