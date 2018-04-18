@@ -1,0 +1,27 @@
+.statisticsContainer {
+    margin: 10px;    
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    font-family: Roboto,sans-serif;
+}
+
+.statisticsContainer h3 {
+    font-size: 21px;
+}
+
+.statisticsItem {
+    width: 50%;
+}
+
+ul.summary {
+    list-style: none;
+    padding-left: 0;
+}
+
+
+.extensionsChart {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,17 @@
+div.circularProgress {
+    display: flex;
+    justify-content: center;   
+}
+
+div.circularProgressBlurred {   
+    display: flex;
+    justify-content: center;   
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none; 
+     user-select: none; 
+}

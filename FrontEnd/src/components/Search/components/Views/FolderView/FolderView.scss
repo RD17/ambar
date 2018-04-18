@@ -1,0 +1,46 @@
+div.folderViewButtonsContainer {
+    background-color: #f4f4f4;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 15px;
+    display: flex;
+}
+
+div.folderViewButtonsContainer button {
+    margin-left: 20px;
+}
+
+div.folderViewTreeContainer {
+}
+
+:global .treeNode button {
+    opacity: 0;
+    margin-left: 4px;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+
+:global .treeNode > .pt-tree-node-content:hover button {
+    opacity: 1 !important;
+}
+
+div.treeNodeNameAndHitsCountContainer {
+    display: flex;
+    align-items: center;
+}
+
+span.treeNodeName {
+    font-size: 14px;
+}
+
+span.treeNodeHitsCount {
+    margin: 4px;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 13px;
+    font-family: Roboto,sans-serif;
+    color: #888888;
+    padding: 2px;
+    border-radius: 3px;
+}

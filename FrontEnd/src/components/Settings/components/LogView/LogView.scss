@@ -1,0 +1,32 @@
+.logFrame {
+    background-color: #263238;
+    font-weight: 700;
+    font-family: "Courier New", monospace;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 7px;
+    height: 230px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    p {
+        margin: 0
+    }
+}
+
+
+
+:global {
+   .blink {
+     animation: blinker 0.5s linear infinite;
+     color: #7CB342;
+   }    
+
+   @keyframes :global(blinker) {  
+    50% { opacity: 0; }
+}
+}
+
+

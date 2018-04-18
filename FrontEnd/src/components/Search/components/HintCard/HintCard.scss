@@ -1,0 +1,22 @@
+.link, .link:hover,.link:visited {
+    color: #00acc1;  
+    text-decoration: underline;  
+    cursor: pointer; cursor: hand;
+}
+
+span.clickableSpan {
+    color: #444477;
+    display: inline-block;
+}
+
+span.clickableSpan:hover {
+    border-radius: 4px;
+    background-color: #B2EBF2;
+    cursor: pointer; cursor: hand;
+}
+
+span.clickableSpan:active {
+    border-radius: 4px;
+    background-color: #80DEEA;
+    cursor: pointer; cursor: hand;
+}

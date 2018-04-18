@@ -1,0 +1,41 @@
+.tag {
+    margin: 4px;
+    cursor: pointer;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    color: rgb(0, 188, 212);
+    padding: 2px;
+    background-color: rgba(0, 188, 212, 0.08);
+    transition: background-color 0.5s ease;
+    border-radius: 3px;
+}
+
+.loading {
+    background-color: rgba(0, 188, 212, 0.2);
+}
+
+.highlight {
+    background-color: #fff176;
+    color: rgb(158, 158, 158);
+}
+
+.source {
+    background-color: #DFFBD8;
+    color: rgb(158, 158, 158);
+}
+
+.auto {
+    background-color: #F7E2E2;
+    color: rgb(158, 158, 158);
+}
+
+.tag > .removeTagButton {  
+    display: block;    
+    margin: 2px 1px 0 1px;
+}
+
+.tag:hover {    
+    background-color: #B2EBF2;
+}

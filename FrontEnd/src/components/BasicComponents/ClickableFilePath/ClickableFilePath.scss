@@ -1,0 +1,30 @@
+div.metaFullNameLineContainer {
+    color: #9E9E9E;
+    font-size: 12px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+div.metaFullNameLineContainerHighlighted {
+    border-radius: 4px;
+    background-color: #fff176;
+    font-size: 12px;
+    display: inline;
+    color: rgb(158, 158, 158);
+}
+
+span.metaFullNamePart {
+    cursor: pointer; cursor: hand;
+}
+
+span.metaFullNamePart:hover {
+    cursor: pointer; cursor: hand;
+    border-radius: 4px;
+    background-color: #B2EBF2;
+}
+
+span.metaFullNamePart:active {
+    cursor: pointer; cursor: hand;
+    border-radius: 4px;
+    background-color: #80DEEA;
+}

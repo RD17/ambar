@@ -1,0 +1,11 @@
+{
+  "name": "Ambar Web API",
+  "version": "0.9.5",
+  "description": "Ambar Web API documentation",
+  "title": "Custom apiDoc browser title",
+  "url" : "https://api.github.com/v1",    
+  "template": {
+  	"withCompare": true,
+  	"withGenerator": true
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "ambar-serviceapi",
+  "version": "1.3.0",
+  "description": "Ambar ServiceAPI",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"yarn run lint && babel-node src\"",
+    "build": "yarn run lint && babel src -s -D -d dist",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint --ext js src",
+    "docs": "apidoc -i src/api -o doc/ && apidoc-markdown -p doc/ -o API_DOC.md"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "sourceMaps": true,
+    "retainLines": true
+  },
+  "author": "RD17 <hello@ambar.cloud>",
+  "license": "MIT",
+  "dependencies": {
+    "JSONStream": "^1.2.1",
+    "amqplib": "^0.5.1",
+    "babel-eslint": "^7.1.0",
+    "babel-plugin-remove-code": "^0.0.6",
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.13.3",
+    "combined-stream2": "^1.1.2",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "cron": "^1.1.1",
+    "cron-parser": "^2.3.1",
+    "elasticsearch": "^12.1.3",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "express": "^4.13.3",
+    "file-type": "^3.8.0",
+    "gridfs-stream": "^1.1.1",
+    "moment": "^2.15.0",
+    "mongodb": "^2.2.10",
+    "multer": "^1.2.0",
+    "redis": "^2.6.3",
+    "request": "^2.76.0",
+    "resource-router-middleware": "^0.5.1",
+    "streamifier": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^4.19.1",
+    "nodemon": "^1.9.2"
+  }
+}

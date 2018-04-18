@@ -1,0 +1,26 @@
+.tagContainer {
+    margin: 3px;
+    font-size: 12px;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Roboto,sans-serif;
+    overflow-x: hidden;
+}
+
+.tagLabel {
+    padding: 2px;
+    color: #848484;
+    border-radius: 3px 0 0 3px;
+    max-width: 200px;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+.tagCount {
+    display: inline-block;
+    background-color: #a7a7a7;
+    color: #fefefe;
+    padding: 2px;
+    border-radius: 0 3px 3px 0;
+}

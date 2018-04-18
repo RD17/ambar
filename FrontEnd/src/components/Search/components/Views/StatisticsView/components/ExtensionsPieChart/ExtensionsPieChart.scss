@@ -1,0 +1,12 @@
+:global text.recharts-text.recharts-pie-label-text {
+    fill: #848484;
+}
+
+:global path.recharts-sector {
+    cursor: pointer;
+}
+
+:global path.recharts-sector:hover {
+    stroke-width: 2px;
+    stroke: yellow;
+}
