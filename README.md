@@ -102,4 +102,4 @@ Request a dedicated support session by mailing us on hello@ambar.cloud
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/privacy-policy.md)
 
 ## License
-[MIT License](https://github.com/RD17/ambar/blob/master/license.txt)
+[MIT License](https://github.com/RD17/ambar/blob/master/License.txt)
