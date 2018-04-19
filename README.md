@@ -49,7 +49,6 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 * OpenOffice documents
 * RTF, Plaintext
 * HTML / XHTML
-* Multithread processing (Only EE)
 
 ## Installation
 
