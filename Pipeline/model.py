@@ -167,7 +167,7 @@ class AmbarFileMeta:
         return fullNameParts
 
     @classmethod
-    def InitFromDictWithId(cls, MetaDict):
+    def Init(cls, MetaDict):
         amFileMeta = cls()
         try:
             amFileMeta.full_name = MetaDict['full_name']
@@ -178,7 +178,7 @@ class AmbarFileMeta:
             amFileMeta.source_id = MetaDict['source_id']
             amFileMeta.created_datetime = MetaDict['created_datetime']
             amFileMeta.updated_datetime = MetaDict['updated_datetime']
-            amFileMeta.id = MetaDict['id']
+            amFileMeta.id = sha256('{0}{1}{2}{3}'.format(MetaDict['source_id'],MetaDict['full_name'],MetaDict['created_datetime'],MetaDict['updated_datetime']).encode('utf-8')).hexdigest()
             ## non serializable content
             amFileMeta.initialized = True
             amFileMeta.message = 'ok'
@@ -189,14 +189,14 @@ class AmbarFileMeta:
 
     @classmethod
     def InitWithoutId(cls, CreateTime, UpdateTime, ShortName, FullName,
-                      AmbarCrawlerId):
+                      AmbarCrawlerId, Extra = []):
         amFileMeta = cls()
         try:
             amFileMeta.full_name = FullName
             amFileMeta.full_name_parts = AmbarFileMeta.ParseFullNameIntoParts(FullName)
             amFileMeta.short_name = ShortName
             amFileMeta.extension = path.splitext(ShortName)[1] if path.splitext(ShortName)[1] != '' else path.splitext(ShortName)[0]
-            amFileMeta.extra = []
+            amFileMeta.extra = Extra
             amFileMeta.source_id = AmbarCrawlerId
             if type(CreateTime) is str:
                 amFileMeta.created_datetime = CreateTime

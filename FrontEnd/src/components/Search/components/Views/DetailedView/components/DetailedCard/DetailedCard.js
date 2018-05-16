@@ -101,14 +101,14 @@ class DetailedCard extends Component {
                     </div>}
                     <CardActions className={classes.searchResultRowCardFooter}>
                         <div style={{ display: 'flex', justifyContent: !isHidden ? 'space-between' : 'flex-end', width: '100%' }}>
-                            {!isHidden && <div>
-                                {preserveOriginals && <FlatButton
+                            {!isHidden && !hidden_mark && meta.source_id != 'ui-upload' && !meta.extra.some(item => item.key === 'from_container') && <div>
+                                <FlatButton
                                     icon={<FileDownloadIcon />}
                                     label={localization.searchPage.downloadLabel}
                                     title={localization.searchPage.downloadDescriptionLabel}
                                     primary={true}
                                     onTouchTap={() => { window.open(downloadUri) }}
-                                />}                                                       
+                                />                                                  
                             </div>}
                             <div>
                                 {!hidden_mark && <FlatButton
@@ -118,14 +118,7 @@ class DetailedCard extends Component {
                                     title={localization.searchPage.removeDescriptionLabel}
                                     style={{ color: 'grey' }}
                                     onTouchTap={() => hideFile(fileId)}
-                                />}
-                                {(isHidden || hidden_mark) && <FlatButton
-                                    icon={<UndoIcon />}
-                                    label={localization.searchPage.restoreLabel}
-                                    title={localization.searchPage.restoreDescriptionLabel}
-                                    primary={true}
-                                    onTouchTap={() => showFile(fileId)}
-                                />}
+                                />}                                
                             </div>
                         </div>}
                     </CardActions>

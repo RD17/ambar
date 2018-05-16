@@ -3,50 +3,28 @@ import chokidar from 'chokidar'
 import path from 'path'
 import config from '../config'
 import bytes from 'bytes'
+import minimatch from 'minimatch'
 
 import * as ApiProxy from './ApiProxy'
-import * as FileService from './FileService'
+import * as QueueProxy from './QueueProxy'
 
-const WAIT_MS = 500
-
-let tasks = []
-
-const allowedFilesRegex = new RegExp(config.allowedFilesRegex, 'gi')
-
-export const startWatch = () => {
-    processTasks()
-
-    chokidar.watch(config.crawlPath, { usePolling: true })
-        .on('all', (event, pathToFile, stat) => {
-            if (event === 'add' || event === 'change') {
-                tasks.push({ event, pathToFile, stat })
-            }
+export const startWatch = () => new Promise((resolve, reject) => {
+    QueueProxy.initRabbit()
+        .then(() => {
+            chokidar.watch(config.crawlPath, { usePolling: true, awaitWriteFinish: true })
+                .on('error', error => {
+                    ApiProxy.logData(config.name, 'error', `Chokidar error: ${error}`)
+                })
+                .on('all', (event, pathToFile, stat) => {
+                    if (event === 'add' || event === 'change' || event === 'unlink') {                       
+                        addTask(event, pathToFile, stat)
+                    }
+                })
         })
-}
-
-const processTasks = async () => {
-    //eslint-disable-next-line no-constant-condition
-    while (true) {
-        if (tasks.length === 0) {
-            await sleep()
-            continue
-        }
-
-        const { pathToFile, stat } = tasks[0]
-        tasks = tasks.slice(1)
-        
-        try {
-            await tryAddFile(pathToFile, stat)
-        } catch (err) {
-            await ApiProxy.logData(config.name, 'error', `failed to submit ${pathToFile}`)
-        }
-    }
-}
-
-const sleep = () => new Promise((resolve) => {
-    setTimeout(() => {
-        resolve()
-    }, WAIT_MS)
+        .catch(err => {
+            ApiProxy.logData(config.name, 'error', `Error: ${err}`)
+            reject(err)
+        })
 })
 
 const shouldIgnore = (pathToFile, stat) => {
@@ -57,60 +35,59 @@ const shouldIgnore = (pathToFile, stat) => {
     const maxFileSizeBytes = bytes.parse(config.maxFileSize)
 
     if (stat.size === 0) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: file.size != 0`)
         return true
     }
 
     if (stat.size > maxFileSizeBytes) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: file.size [${bytes(stat.size)}] > maxFileSize [${bytes(maxFileSizeBytes)}]`)
         return true
     }
 
-    if (!allowedFilesRegex.test(pathToFile)) {
+    const extName = path.extname(pathToFile)
+    if (!extName) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: File should have extension`)
         return true
     }
 
-    if (!path.extname(pathToFile)) {
+    if (config.ignoreExtensions && minimatch(extName, config.ignoreExtensions)) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: ignore extensions [${config.ignoreExtensions}]`)
+        return true
+    }
+
+    const fileName = path.basename(pathToFile, extName)
+    if (config.ignoreFileNames && minimatch(fileName, config.ignoreFileNames)) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: ignore fileNames [${config.ignoreFileNames}]`)
+        return true
+    }
+
+    const dirName = path.dirname(pathToFile)
+    if (config.ignoreFolders && minimatch(dirName, config.ignoreFolders)) {
+        ApiProxy.logData(config.name, 'verbose', `${pathToFile} ignoring. Rule: ignore folders [${config.ignoreFolders}]`)
         return true
     }
 
     return false
 }
 
-const tryAddFile = async (pathToFile, stat) => {
+const addTask = (event, pathToFile, stat) => {    
     let normalizedPath = path.normalize(pathToFile)
 
     normalizedPath = `//${normalizedPath.replace(config.crawlPath, config.name)}`.replace(/\\/g, '/')
 
     if (shouldIgnore(normalizedPath, stat)) {
-        await ApiProxy.logData(config.name, 'info', `${normalizedPath} ignoring`)
         return
     }
 
     const meta = {
         full_name: normalizedPath,
-        updated_datetime: moment(stat.mtime).format('YYYY-MM-DD HH:mm:ss.SSS'),
-        created_datetime: moment(stat.atime).format('YYYY-MM-DD HH:mm:ss.SSS'),
+        updated_datetime: !stat ? '' : moment(stat.mtime).format('YYYY-MM-DD HH:mm:ss.SSS'),
+        created_datetime: !stat ? '' :moment(stat.atime).format('YYYY-MM-DD HH:mm:ss.SSS'),
         source_id: config.name,
         short_name: path.basename(normalizedPath),
         extension: path.extname(normalizedPath),
         extra: []
     }
 
-    const metaExists = await ApiProxy.doesFileMetaExist(meta)
-    if (metaExists) {
-        await ApiProxy.logData(config.name, 'info', `${normalizedPath} meta exists`)
-        return
-    }
-
-    const sha = await FileService.getFileSha(pathToFile)
-    const contentExist = await ApiProxy.doesParsedContentExist(sha)
-
-    if (contentExist) {
-        await ApiProxy.logData(config.name, 'info', `${normalizedPath} - content found`)
-    } else {
-        await ApiProxy.addFileContent(pathToFile, sha)
-        await ApiProxy.logData(config.name, 'info', `${normalizedPath} - content added`)
-    }
-
-    await ApiProxy.addFileMeta(meta, sha, config.name)
-    await ApiProxy.logData(config.name, 'info', `${normalizedPath} - meta updated`)
+    QueueProxy.enqueueMessage({ event: event, meta: meta })
 }

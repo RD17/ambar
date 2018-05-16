@@ -135,10 +135,9 @@ class PstProcessor():
                         self.logger.LogMessage('verbose', 'content found {0}'.format(fullNameInArchive))
 
                     # sending meta back to queue
-                    fileMeta = AmbarFileMeta.InitWithoutId(FileMeta.created_datetime, FileMeta.updated_datetime, fileName, fullNameInArchive, FileMeta.source_id)
+                    fileMeta = AmbarFileMeta.InitWithoutId(FileMeta.created_datetime, FileMeta.updated_datetime, fileName, fullNameInArchive, FileMeta.source_id, [{'key': 'from_container', 'value': 'true'}])
 
-                    apiResp = self.apiProxy.EnqueueAmbarFileMeta(
-                        fileMeta, sha, SourceId)
+                    apiResp = self.apiProxy.EnqueueAmbarFileMeta(fileMeta, sha, SourceId)
 
                     if not apiResp.Success:
                         self.logger.LogMessage('error', 'error adding meta {0} {1}'.format(
@@ -147,10 +146,6 @@ class PstProcessor():
 
                     if apiResp.BadRequest:
                         self.logger.LogMessage('verbose', 'bad meta, ignoring... {0}'.format(fileMeta.full_name))
-                        continue
-
-                    if apiResp.InsufficientStorage:
-                        self.logger.LogMessage('verbose', 'insufficient storage'.format(fileMeta.full_name))
                         continue
 
                     if not apiResp.Ok:

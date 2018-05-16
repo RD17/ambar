@@ -8,7 +8,7 @@ COPY . .
 RUN yarn install
 RUN yarn run build
 
-CMD node dist
+CMD node --max-old-space-size=8096 dist
 
 HEALTHCHECK --interval=5s --timeout=30s --retries=50 \
   CMD curl -f localhost:8082/api/ || exit 1

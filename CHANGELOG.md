@@ -1,5 +1,19 @@
 Change log
 ==========
+2.1.8 (2018-05-16)
+-------------------
+
+This Release is sponsored by [IFIC.co.uk](http://www.ific.co.uk/), special thanks to Dr. Barry Clark
+
+### What's new:
+
+- Dramatic increase of crawling speed
+- Storage consumption is minimal, now you download files directly from crawled fs
+- File removal sync -> if file removed from folder it will be marked as removed in Ambar
+- Added ability to ignore files by folders, extensions and file names
+- Bug fixes and small changes to docker-compose.yml
+
+Update notes: before update, please download the latest [docker-compose.yml](https://github.com/RD17/ambar/blob/master/docker-compose.yml) and [read the installation instruction](https://github.com/RD17/ambar/blob/master/Install.md).
 
 2.0.0rc (2018-04-18)
 -------------------

@@ -35,10 +35,10 @@ class RateUs extends Component {
                         </div>
                         <div className={classes.rateUsText}>
                             <p>
-                                Let's spread the word that Ambar is awesome! Help us make Ambar even better, follow us on Twitter or give us your stars on Github.
+                                Let's spread the word that Ambar is awesome! Help us make Ambar even better, give us your stars on Github.
                             </p>
                             <p>
-                                Together we will build the best document search system in the world!
+                                Together we will build the best document search engine in the world!
                             </p>
                             <div style={{display: 'flex', justifyContent: 'center'}}>
                                 <FlatButton
@@ -46,13 +46,7 @@ class RateUs extends Component {
                                     primary={true}
                                     onTouchTap={() => goToUrl('https://github.com/RD17/ambar')}
                                     icon={<img height={20} src={GithubIcon} />}
-                                />
-                                <FlatButton
-                                    label="Tweet"
-                                    primary={true}
-                                    onTouchTap={() => goToUrl('https://twitter.com/intent/tweet?text=%23Ambar%20is%20awesome%20%23DocumentSearchSystem!%20Check%20it%20out%20on%20https%3A%2F%2Fambar.cloud')}
-                                    icon={<img height={20} src={TwitterIcon} />}
-                                />
+                                />                              
                             </div>
                         </div>
                     </div>

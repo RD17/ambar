@@ -3,6 +3,7 @@ import { EsProxy, DateTimeService } from './index'
 const TAGS_HASH_NAME = 'tags'
 
 export const addMetaId = (redis, metaId) => { redis.set(`meta:${metaId}`, DateTimeService.getCurrentDateTime()) }
+export const removeMetaId = (redis, metaId) => { redis.del(`meta:${metaId}`) }
 
 export const checkIfTokenExists = (redis, token) => redis.getAsync(token)
 export const addToken = (redis, token, ttlSeconds) => {

@@ -21,6 +21,7 @@
   "author": "RD17",
   "license": "MIT",
   "dependencies": {
+    "amqplib": "^0.5.2",
     "babel-eslint": "^7.1.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.13.3",
@@ -32,6 +33,7 @@
     "eslint-plugin-promise": "^3.3.0",
     "express": "^4.13.3",
     "idempotent-babel-polyfill": "^0.1.1",
+    "minimatch": "^3.0.4",
     "moment": "^2.15.0",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5",

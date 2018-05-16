@@ -1,10 +1,12 @@
 import io
 import re
 import requests
+import urllib.parse
 
 class ApiProxy:
-    def __init__(self, ApiUrl, ApiCallTimeoutSeconds):
+    def __init__(self, ApiUrl, WebApiUrl, ApiCallTimeoutSeconds):
         self.apiUrl = ApiUrl
+        self.webApiUrl = WebApiUrl
         self.apiCallTimeoutSeconds = ApiCallTimeoutSeconds
 
     def GetTaggingRules(self):
@@ -58,6 +60,18 @@ class ApiProxy:
             apiResp.message = str(ex)
         return apiResp  
 
+    def CheckIfMetaExists(self, Meta):
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/meta/exists'.format(self.apiUrl)
+            req = requests.post(apiUri, json = Meta, timeout = self.apiCallTimeoutSeconds)
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code            
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp 
+
     def CreateAmbarFileContent(self, FileData, Sha256):
         apiResp = RestApiResponse()
         try:
@@ -91,16 +105,86 @@ class ApiProxy:
             apiResp.message = str(ex)
         return apiResp
 
-    def GetFileContent(self, sha):
+    def GetFileContent(self, Sha):
         apiResp = RestApiResponse()
         try:
-            apiUri = '{0}/api/files/content/{1}'.format(self.apiUrl, sha)
+            apiUri = '{0}/api/files/content/{1}'.format(self.apiUrl, Sha)
             req = requests.get(apiUri, timeout = self.apiCallTimeoutSeconds)
             if req.status_code == 200:                
                 contentDispositionHeader = req.headers['content-disposition']
                 reRes = re.search("filename\*=UTF-8\'\'(.+)", contentDispositionHeader)
                 if reRes:
                     apiResp.sha = reRes.group(1)
+                apiResp.payload = req.content
+            else:
+                try:
+                    apiResp.message = req.text
+                except:
+                    pass
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code            
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp
+
+    def HideFile(self, FileId): 
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/hide/{1}'.format(self.webApiUrl, FileId)
+            req = requests.put(apiUri, timeout = self.apiCallTimeoutSeconds)
+            try:
+                apiResp.message = req.text
+            except:
+                pass
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp
+    
+    def UnhideFile(self, FileId): 
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/unhide/{1}'.format(self.webApiUrl, FileId)
+            req = requests.put(apiUri, timeout = self.apiCallTimeoutSeconds)
+            try:
+                apiResp.message = req.text
+            except:
+                pass
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp
+
+    def DownloadFile(self, FullName):
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/download?path={1}'.format(self.webApiUrl, urllib.parse.quote_plus(FullName))
+            req = requests.get(apiUri, timeout = self.apiCallTimeoutSeconds)
+            if req.status_code == 200:                
+                apiResp.payload = req.content
+            else:
+                try:
+                    apiResp.message = req.text
+                except:
+                    pass
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code            
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp
+
+    def DownloadFileBySha(self, Sha):
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/download?sha={1}'.format(self.webApiUrl, urllib.parse.quote_plus(Sha))
+            req = requests.get(apiUri, timeout = self.apiCallTimeoutSeconds)
+            if req.status_code == 200:                
                 apiResp.payload = req.content
             else:
                 try:
@@ -175,6 +259,22 @@ class ApiProxy:
             apiResp.result = 'error'
             apiResp.message = str(ex)
         return apiResp
+    
+    def AddMetaIdToCache(self, MetaId):
+        apiResp = RestApiResponse()
+        try:
+            apiUri = '{0}/api/files/meta/{1}/processed'.format(self.apiUrl, MetaId)
+            req = requests.post(apiUri, timeout = self.apiCallTimeoutSeconds)
+            try:
+                apiResp.message = req.text
+            except:
+                pass
+            apiResp.result = 'ok'
+            apiResp.code = req.status_code            
+        except requests.exceptions.RequestException as ex:
+            apiResp.result = 'error'
+            apiResp.message = str(ex)
+        return apiResp
 
     def SubmitProcessedFile(self, FileId, AmbarFileBytes):
         apiResp = RestApiResponse()
@@ -225,22 +325,6 @@ class ApiProxy:
             apiResp.message = str(ex)
         return apiResp
 
-    def CallExternalNER(self, ExternalNERUri, FileId, Sha):
-        apiResp = RestApiResponse()
-        try:
-            body = { 'fileId': FileId, 'sha': Sha }
-            req = requests.post(ExternalNERUri, json=body, timeout = self.apiCallTimeoutSeconds)
-            try:
-                apiResp.message = req.text
-            except:
-                pass
-            apiResp.result = 'ok'
-            apiResp.code = req.status_code            
-        except requests.exceptions.RequestException as ex:
-            apiResp.result = 'error'
-            apiResp.message = str(ex)
-        return apiResp
-
     def SubmitExtractedContent(self, Sha256, AmbarFileContentTextBytes):
         apiResp = RestApiResponse()
         try:
@@ -264,29 +348,6 @@ class ApiProxy:
             files = {'file': (ThumbId, ThumbData)}
             apiUri = '{0}/api/thumbs/{1}'.format(self.apiUrl, ThumbId)
             req = requests.post(apiUri, files=files, timeout = self.apiCallTimeoutSeconds)
-            apiResp.result = 'ok'
-            apiResp.code = req.status_code            
-        except requests.exceptions.RequestException as ex:
-            apiResp.result = 'error'
-            apiResp.message = str(ex)
-        return apiResp
-
-    def GetAmbarCrawlerFileRegex(self, CrawlerId):
-        apiResp = RestApiResponse()
-        try:
-            apiUri = '{0}/api/crawlers/{1}'.format(self.apiUrl, CrawlerId)
-            req = requests.get(apiUri, timeout = self.apiCallTimeoutSeconds)  
-            if req.status_code == 200:
-                try:
-                    apiResp.payload = req.json()['file_regex']
-                except:
-                    apiResp.result = 'error'
-                    apiResp.message = str(ex)
-            else:
-                try:
-                    apiResp.message = req.text
-                except:
-                    pass     
             apiResp.result = 'ok'
             apiResp.code = req.status_code            
         except requests.exceptions.RequestException as ex:

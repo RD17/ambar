@@ -10,7 +10,7 @@ const getPipelineMessagePriority = (storage, fileName) => new Promise((resolve) 
 })
 
 export const enqueuePipelineMessage = (storage, message) => new Promise((resolve, reject) => {
-	const fileName = message.meta.short_name
+	const fileName = message.fileName || message.meta.short_name
 
 	storage.rabbit.createConfirmChannel()
 		.then(channel => {

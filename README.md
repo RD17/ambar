@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v2.0.0rc-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v2.1.8-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 [![Blog](https://img.shields.io/badge/Ambar%20Blog-%20Latest%20news%20and%20tutorials%20-brightgreen.svg)](https://blog.ambar.cloud)
 
@@ -49,6 +49,7 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 * OpenOffice documents
 * RTF, Plaintext
 * HTML / XHTML
+* Multithread processing (Only EE)
 
 ## Installation
 
@@ -94,6 +95,10 @@ It's limited by amount of RAM on your machine, typically it's 500MB. It's an awe
 ### I have a problem what should I do?
 Request a dedicated support session by mailing us on hello@ambar.cloud
 
+## Sponsors
+
+- [IFIC.co.uk](http://www.ific.co.uk/)
+
 ## Change Log
 [Change Log](https://github.com/RD17/ambar/blob/master/CHANGELOG.md)
 
@@ -101,4 +106,4 @@ Request a dedicated support session by mailing us on hello@ambar.cloud
 [Privacy Policy](https://github.com/RD17/ambar/blob/master/privacy-policy.md)
 
 ## License
-[MIT License](https://github.com/RD17/ambar/blob/master/License.txt)
+[MIT License](https://github.com/RD17/ambar/blob/master/license.txt)

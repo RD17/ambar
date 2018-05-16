@@ -5,7 +5,7 @@ const init = (apiHost) => {
         ambarWebApiSearchByStringQuery: (query, page, size) => `${apiHost}/api/search?query=${encodeURIComponent(query)}&page=${page}&size=${size}`,
         ambarWebApiLoadContentHightlight: (fileId, query) => `${apiHost}/api/search/${fileId}/?query=${encodeURIComponent(query)}`,
         ambarWebApiLoadFullContentHightlight: (fileId, query) => `${apiHost}/api/search/${fileId}/full?query=${encodeURIComponent(query)}`,
-        ambarWebApiGetFile: (metaId) => `${apiHost}/api/files/${metaId}`,
+        ambarWebApiGetFile: (fullPath) => `${apiHost}/api/files/download?path=${encodeURIComponent(fullPath)}`,
         ambarWebApiGetFileText: (metaId) => `${apiHost}/api/files/${metaId}/text`,
 
         ambarWebApiGetCrawlers: () => `${apiHost}/api/crawlers`,
