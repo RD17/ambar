@@ -36,7 +36,7 @@ RUN mkdir /pst-temp
 
 ENV JAVA_HOME /usr/lib/jvm/default-java
 
-CMD python ./pipeline.py -id $id -api_url $api_url -rabbit_host $rabbit_host
+CMD python ./pipeline.py
 
 HEALTHCHECK --interval=5s --timeout=30s --retries=50 \
   CMD if (pidof -x python > /dev/null) then (exit 0) else (exit 1) fi

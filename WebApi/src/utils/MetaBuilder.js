@@ -8,8 +8,8 @@ const generateMetaId = (source_id, full_name, created_datetime, updated_datetime
 
 export const buildShortMeta = (shortName, sourceId) => {
 
-    const short_name = shortName.toLowerCase()
-    const full_name = `//${sourceId.toLowerCase()}/${shortName.toLowerCase()}`
+    const short_name = shortName
+    const full_name = `//${sourceId}/${shortName}`
     const source_id = sourceId
     let extension = ''
     let calculatedExtension = FILE_EXTENSION_REGEX.exec(short_name)

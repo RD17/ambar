@@ -12,18 +12,14 @@ services:
     volumes:
       - ${dataPath}/db:/data/db
     expose:
-      - "27017"
-    ports:
-      - "27017:27017"
+      - "27017"   
   es:
     restart: always
     networks:
       - internal_network
     image: ambar/ambar-es:latest
     expose:
-      - "9200"
-    ports:
-      - "9200:9200"
+      - "9200" 
     environment:
       - cluster.name=ambar-es
       - ES_JAVA_OPTS=-Xms2g -Xmx2g
@@ -46,10 +42,7 @@ services:
     hostname: rabbit
     expose:
       - "15672"
-      - "5672"
-    ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "5672"   
     volumes:
       - ${dataPath}/rabbit:/var/lib/rabbitmq
   redis:
@@ -60,9 +53,7 @@ services:
       - internal_network
     image: ambar/ambar-redis:latest
     expose:
-      - "6379"
-    ports:
-      - "6379:6379" 
+      - "6379" 
   serviceapi:
     depends_on:
       redis:
@@ -78,18 +69,14 @@ services:
       - internal_network
     image: ambar/ambar-serviceapi:latest
     expose:
-      - "8081"
-    ports:
-      - "8081:8081"
+      - "8081"  
     environment:            
       - mongoDbUrl=mongodb://db:27017/ambar_data
       - elasticSearchUrl=http://es:9200
       - redisHost=redis
       - redisPort=6379
       - rabbitHost=amqp://rabbit
-      - langAnalyzer=${langAnalyzer}
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - langAnalyzer=${langAnalyzer}   
   webapi:
     depends_on:
       serviceapi:
@@ -110,9 +97,7 @@ services:
       - redisHost=redis
       - redisPort=6379
       - serviceApiUrl=http://serviceapi:8081
-      - rabbitHost=amqp://rabbit
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - rabbitHost=amqp://rabbit    
   frontend:
     depends_on:
       webapi:
@@ -139,7 +124,7 @@ services:
       - id=0
       - api_url=http://serviceapi:8081
       - rabbit_host=amqp://rabbit
-  crawler0:
+  ${crawlerName}:
     depends_on: 
       serviceapi: 
         condition: service_healthy 
@@ -147,9 +132,9 @@ services:
     restart: always
     networks:
       - internal_network
-    environment:
-      - apiUrl=http://serviceapi:8081
-      - crawlPath=/usr/data
+    expose:
+      - "8082"
+    environment:      
       - name=${crawlerName}
     volumes:
       - ${pathToCrawl}:/usr/data

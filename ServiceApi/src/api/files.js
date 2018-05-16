@@ -60,6 +60,17 @@ export default ({ storage }) => {
     })
 
     /**
+     * Cache processed meta id
+    */
+    api.post('/meta/:metaId/processed', (req, res) => {
+        const { params: { metaId } } = req
+
+        CacheProxy.addMetaId(storage.redis, metaId)
+
+        res.sendStatus(200)
+    })
+
+    /**
      * Enqueue meta for specified sha (enqueuing message to pipeline)
      */
     api.post('/meta/:sha/:sourceId', (req, res, next) => {
@@ -77,9 +88,9 @@ export default ({ storage }) => {
             return
         }
 
-        QueueProxy.enqueuePipelineMessage(storage, { sha: sha, fileId: generateFileId(meta.source_id, meta.full_name), sourceId: sourceId, meta: meta })
+        QueueProxy.enqueuePipelineMessage(storage, { event: 'add', sha: sha, fileId: generateFileId(meta.source_id, meta.full_name), sourceId: sourceId, meta: meta })
             .then(() => {
-                CacheProxy.addMetaId(storage.redis, meta.id)
+                //CacheProxy.addMetaId(storage.redis, meta.id)
                 res.sendStatus(200)
             })
             .catch(next)

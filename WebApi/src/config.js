@@ -13,6 +13,7 @@ const defaultConfig = {
 	"rabbitHost": "amqp://ambar",
 	"uiLang": "en",
 	"analyticsToken": "",
+	"crawlerPort": 8082
 }
 
 const intParamsList = ['localPort']

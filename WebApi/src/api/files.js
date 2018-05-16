@@ -3,13 +3,19 @@ import ErrorResponse from '../utils/ErrorResponse'
 import {
     CryptoService,
     EsProxy,
-    CacheProxy,
     GridFsProxy,
     MongoProxy,
-    FileUploader,    
-    QueueProxy
+    FileUploader,
+    QueueProxy,
+    CacheProxy
 } from '../services'
+
 import * as MetaBuilder from '../utils/MetaBuilder'
+
+import config from '../config'
+import request from 'request'
+
+const DOWNLOAD_URL_REGEX = /^\/\/([^/]+)\/(.*)$/i
 
 const generateFileId = (source_id, full_name) => {
     return CryptoService.getSha256(`${source_id}${full_name}`)
@@ -19,6 +25,58 @@ const generateExtractedTextFileName = (sha) => `text_${sha}`
 
 export default ({ storage }) => {
     let api = Router()
+
+    api.get('/download', (req, res, next) => {
+        const filePath = req.query.path
+        const sha = req.query.sha
+
+        if (!filePath && !sha) {
+            res.sendStatus(400)
+            return
+        }
+
+        if (sha) {
+            GridFsProxy.checkIfFileExists(storage.mongoDb, sha)
+                .then(fileExsists => {
+                    if (!fileExsists) {
+                        res.status(404).json(new ErrorResponse('File content not found'))
+                        return
+                    }
+
+                    res.writeHead(200, {
+                        'Content-Type': 'application/octet-stream',
+                        'Content-Disposition': `attachment; filename*=UTF-8''${encodeURIComponent(sha)}`
+                    })
+
+                    GridFsProxy
+                        .downloadFile(storage.mongoDb, sha)
+                        .on('error', (err) => {
+                            console.log('err during downloading by sha', err)
+                            res.end()
+                        })
+                        .pipe(res)
+                })
+                .catch(next)
+
+        } else if (filePath) {
+            const match = DOWNLOAD_URL_REGEX.exec(filePath)
+
+            if (!match) {
+                res.sendStatus(400)
+                return
+            }
+
+            const { 1: crawlerName, 2: crawlerFilePath } = match
+
+            request
+                .get(`http://${crawlerName}:${config.crawlerPort}/api/download?path=${encodeURIComponent(crawlerFilePath)}`)
+                .on('error', (err) => {
+                    console.log('err during downloading by path', err)
+                    res.end()
+                })
+                .pipe(res)
+        }
+    })
 
     //////////////// CALLED FROM UI ///////////////////////////////////////////   
     /**     
@@ -186,9 +244,9 @@ export default ({ storage }) => {
                     return GridFsProxy.uploadFile(storage.mongoDb, sha, fileContent)
                 }
             })
-            .then(() => QueueProxy.enqueuePipelineMessage(storage, { sha: sha, fileId: generateFileId(meta.source_id, meta.full_name), sourceId: sourceId, meta: meta }))
+            .then(() => QueueProxy.enqueuePipelineMessage(storage, { event: 'add', sha: sha, fileId: generateFileId(meta.source_id, meta.full_name), sourceId: sourceId, meta: meta }))
             .then(() => {
-                CacheProxy.addMetaId(storage.redis, meta.id)
+                // CacheProxy.addMetaId(storage.redis, meta.id)
                 res.status(200).json({ fileId: generateFileId(meta.source_id, meta.full_name) })
             })
             .catch(next)
@@ -211,14 +269,16 @@ export default ({ storage }) => {
     api.put('/hide/:fileId', (req, res, next) => {
         const fileId = req.params.fileId
 
-        EsProxy.checkIfFileExists(storage.elasticSearch, fileId)
-            .then(fileExists => {
-                if (!fileExists) {
+        EsProxy.getFileByFileId(storage.elasticSearch, fileId)
+            .then(file => {
+                if (!file) {
                     res.sendStatus(404)
                     return
                 }
 
-                return EsProxy.hideFile(storage.elasticSearch, fileId)
+                CacheProxy.removeMetaId(storage.redis, file.meta.id)
+
+                return EsProxy.hideFile(storage.elasticSearch, file.file_id)
                     .then(() => res.sendStatus(200))
             })
             .catch(next)
@@ -241,25 +301,16 @@ export default ({ storage }) => {
     api.put('/unhide/:fileId', (req, res, next) => {
         const fileId = req.params.fileId
 
-        EsProxy.checkIfFileExists(storage.elasticSearch, fileId)
-            .then(fileExists => {
-                if (!fileExists) {
+        EsProxy.unHideFile(storage.elasticSearch, fileId)
+            .then(() => res.sendStatus(200))
+            .catch(err => {
+                if ((err.statusCode) && (err.statusCode == 404)) {
                     res.sendStatus(404)
                     return
                 }
 
-                return EsProxy.unHideFile(storage.elasticSearch, fileId)
-                    .then(() => res.sendStatus(200))
-                    .catch(err => {
-                        if ((err.statusCode) && (err.statusCode == 404)) {
-                            res.sendStatus(200)
-                            return
-                        }
-
-                        throw new Error(err)
-                    })
+                next(err)
             })
-            .catch(next)
     })
 
     return api

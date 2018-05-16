@@ -14,9 +14,6 @@ class ArchiveProcessor():
     def Process(self, FileData, FileMeta, SourceId):
         self.logger.LogMessage('verbose','unzipping {0}'.format(FileMeta.full_name))
 
-        ##TODO: Get fileRegex from crawler settings
-        fileRegex = re.compile('(\\.doc[a-z]*$)|(\\.xls[a-z]*$)|(\\.txt$)|(\\.csv$)|(\\.htm[a-z]*$)|(\\.ppt[a-z]*$)|(\\.pdf$)|(\\.msg$)|(\\.zip$)|(\\.eml$)|(\\.rtf$)|(\\.md$)|(\\.png$)|(\\.bmp$)|(\\.tif[f]*$)|(\\.jp[e]*g$)',re.I)
-
         try:
             with ZipFile(io.BytesIO(FileData)) as zipFile:
                 for zipFileInfo in zipFile.infolist():                    
@@ -25,10 +22,6 @@ class ArchiveProcessor():
                     except:
                         unicodeName = zipFileInfo.filename
         
-                    if not fileRegex.search(unicodeName):  
-                        self.logger.LogMessage('verbose','ignoring {0}/{1}'.format(FileMeta.full_name, unicodeName))
-                        continue
-
                     fullNameInArchive = '{0}/{1}'.format(FileMeta.full_name, unicodeName)
                     createUpdateTime = datetime(
                         zipFileInfo.date_time[0],
@@ -80,7 +73,7 @@ class ArchiveProcessor():
                         self.logger.LogMessage('verbose', 'content found {0}'.format(fullNameInArchive))   
 
                     ## sending meta back to queue
-                    fileMeta = AmbarFileMeta.InitWithoutId(createUpdateTime, createUpdateTime, unicodeName, fullNameInArchive, FileMeta.source_id)
+                    fileMeta = AmbarFileMeta.InitWithoutId(createUpdateTime, createUpdateTime, unicodeName, fullNameInArchive, FileMeta.source_id, [{'key': 'from_container', 'value': 'true'}])
 
                     apiResp = self.apiProxy.EnqueueAmbarFileMeta(fileMeta, sha, SourceId)
 
@@ -92,10 +85,6 @@ class ArchiveProcessor():
                         self.logger.LogMessage('verbose', 'bad meta, ignoring... {0}'.format(fileMeta.full_name))
                         continue
 
-                    if apiResp.InsufficientStorage:
-                        self.logger.LogMessage('verbose', 'insufficient storage'.format(fileMeta.full_name))
-                        continue
-                    
                     if not apiResp.Ok:
                         self.logger.LogMessage('error', 'unexpected response on adding meta {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
                         continue

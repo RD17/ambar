@@ -12,7 +12,6 @@ from datetime import datetime
 import gc
 import io
 import sys
-import argparse
 import os
 import time
 import hashlib
@@ -26,21 +25,19 @@ RABBIT_HEARTBEAT = 0
 API_CALL_TIMEOUT_SECONDS = 1200
 PARSE_TIMEOUT_SECONDS = 1200
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-id', default='0')
-parser.add_argument('-api_url', default='http://ambar:8081')
-parser.add_argument('-rabbit_host', default='amqp://ambar')
+pipelineId = os.getenv('id', '0')
+apiUrl = os.getenv('api_url', 'http://serviceapi:8081')
+webApiUrl = os.getenv('web_api_url', 'http://webapi:8080')
+rabbitHost = os.getenv('rabbit_host','amqp://ambar')
 
 ocrPdfSymbolsPerPageThreshold = int(os.getenv('ocrPdfSymbolsPerPageThreshold', 1000))
 ocrPdfMaxPageCount = int(os.getenv('ocrPdfSymbolsPerPageThreshold', 5))
 preserveOriginals = True if os.getenv('preserveOriginals', 'False') == 'True' else False
 
-args = parser.parse_args()
-
 # instantiating Api proxy
-apiProxy = ApiProxy(args.api_url, API_CALL_TIMEOUT_SECONDS)
+apiProxy = ApiProxy(apiUrl, webApiUrl, API_CALL_TIMEOUT_SECONDS)
 # instantiating logger
-logger = AmbarLogger(apiProxy, args.id)
+logger = AmbarLogger(apiProxy, pipelineId)
 # instantiating ArchiveProcessor
 archiveProcessor = ArchiveProcessor(logger, apiProxy)
 # instantiating PstProcessor
@@ -56,11 +53,11 @@ preserveOriginals = True if preserveOriginals else False
 logger.LogMessage('info', 'started')
 
 # connecting to Rabbit
-logger.LogMessage(
-    'info', 'connecting to Rabbit {0}...'.format(args.rabbit_host))
+logger.LogMessage('info', 'connecting to Rabbit {0}...'.format(rabbitHost))
+
 try:
     rabbitConnection = pika.BlockingConnection(pika.URLParameters(
-        '{0}?heartbeat={1}'.format(args.rabbit_host, RABBIT_HEARTBEAT)))
+        '{0}?heartbeat={1}'.format(rabbitHost, RABBIT_HEARTBEAT)))
     rabbitChannel = rabbitConnection.channel()
     rabbitChannel.basic_qos(prefetch_count=1, all_channels=True)
     logger.LogMessage('info', 'connected to Rabbit!')
@@ -72,16 +69,86 @@ except Exception as e:
 logger.LogMessage('info', 'waiting for messages...')
 
 
-def ProcessFile(sha, fileId, meta, sourceId):
+def ProcessFile(message):
     try:
-        logger.LogMessage('verbose', 'task received {0}'.format(sha))
+        meta = message['meta']
+        event = message['event']
+        sha = None
 
-        fileMeta = AmbarFileMeta.InitFromDictWithId(meta)
+        logger.LogMessage('verbose', '{0} task received for {1}'.format(event, meta['full_name']))
+
+        if ('sha' in message):
+            sha = message['sha']
+
+        fileId = sha256('{0}{1}'.format(meta['source_id'],meta['full_name']).encode('utf-8')).hexdigest()
+
+        if (event == 'unlink'):
+            apiResp = apiProxy.HideFile(fileId)
+
+            if not apiResp.Success:
+                logger.LogMessage('error', 'error hidding file for {0} {1}'.format(meta['full_name'], apiResp.message))
+                return False
+            
+            if apiResp.Ok:
+                logger.LogMessage('verbose', 'removed {0}'.format(meta['full_name']))
+                return True
+
+            if not apiResp.NotFound:
+                logger.LogMessage('error', 'error hidding file {0} {1} code: {2}'.format(meta['full_name'], apiResp.message, apiResp.code))
+                return False
+            
+            return True
+
+        if (event != 'add' and event != 'change'):
+            print('Ignoring {0}'.format(event))
+            return True
+
+        apiResp = apiProxy.CheckIfMetaExists(meta)
+
+        if not apiResp.Success:
+            logger.LogMessage('error', 'error checking meta existance for {0} {1}'.format(meta['full_name'], apiResp.message))
+            return False
+
+        if apiResp.Ok:
+            logger.LogMessage('verbose', 'meta found for {0}'.format(meta['full_name']))
+            return True
+
+        if not apiResp.NotFound:
+            logger.LogMessage('error', 'error checking meta existance for {0} {1} {2}'.format(meta['full_name'], apiResp.code, apiResp.message))
+            return False
+
+        apiResp = apiProxy.UnhideFile(fileId)
+
+        if not apiResp.Success:
+            logger.LogMessage('error', 'error unhiding file {0} {1}'.format(meta['full_name'], apiResp.message))
+            return False
+
+        if not (apiResp.Ok or apiResp.NotFound):
+            logger.LogMessage('error', 'error unhiding file, unexpected response code {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
+            return False
+        
+        fileMeta = AmbarFileMeta.Init(meta)
 
         if not fileMeta.initialized:
-            logger.LogMessage(
-                'error', 'error initializing file meta {0}'.format(fileMeta.message))
+            logger.LogMessage('error', 'error initializing file meta {0}'.format(fileMeta.message))
             return False
+
+        if (sha):
+            apiResp = apiProxy.DownloadFileBySha(sha)
+        else:
+            apiResp = apiProxy.DownloadFile(fileMeta.full_name)
+
+        if not apiResp.Success:
+            logger.LogMessage('error', 'error downloading file {0} {1}'.format(fileMeta.full_name, apiResp.message))
+            return False
+
+        if not apiResp.Ok:
+            logger.LogMessage('error', 'error downloading file {0} {1} code: {2}'.format(fileMeta.full_name, apiResp.message, apiResp.code))
+            return False
+
+        fileData = apiResp.payload
+
+        sha = sha256(fileData).hexdigest()
 
         hasParsedContent = False
         fileContent = {}
@@ -125,42 +192,13 @@ def ProcessFile(sha, fileId, meta, sourceId):
                     'verbose', 'parsed content found {0}'.format(fileMeta.full_name))
 
         if not hasParsedContent:
-            apiResp = apiProxy.GetFileContent(sha)
-
-            if not apiResp.Success:
-                logger.LogMessage('error', 'error retrieving file content {0} {1}'.format(
-                    fileMeta.full_name, apiResp.message))
-                return False
-
-            if apiResp.NotFound:
-                logger.LogMessage(
-                    'verbose', 'file content not found {0}'.format(fileMeta.full_name))
-                return False
-
-            if not apiResp.Ok:
-                logger.LogMessage('error', 'error retrieving file content {0} {1} {2}'.format(
-                    fileMeta.full_name, apiResp.code, apiResp.message))
-                return False
-
-            # file received
-            fileData = apiResp.payload
-            logger.LogMessage(
-                'verbose', 'file content received {0}'.format(fileMeta.full_name))
-
-            # checking received sha with calculated payload sha
-            calculatedSha = sha256(fileData).hexdigest()
-            if (calculatedSha != sha):
-                logger.LogMessage('error', 'calculated sha ({0}) is not equal to received sha ({1}) for {2}'.format(
-                    calculatedSha, sha, fileMeta.full_name))
-                return False
-
             # checking if file is archive
             if ContentTypeAnalyzer.IsArchive(fileMeta.short_name):
-                archiveProcessor.Process(fileData, fileMeta, sourceId)
+                archiveProcessor.Process(fileData, fileMeta, fileMeta.source_id)
 
             # checking if file is pst
             if ContentTypeAnalyzer.IsPst(fileMeta.short_name):
-                pstProcessor.Process(fileData, fileMeta, sourceId)
+                pstProcessor.Process(fileData, fileMeta, fileMeta.source_id)
 
             # extracting
             logger.LogMessage('verbose', 'parsing {0}'.format(fileMeta.full_name))
@@ -205,13 +243,11 @@ def ProcessFile(sha, fileId, meta, sourceId):
                     sha, fileContent.text.encode(encoding='utf_8', errors='ignore'))
 
                 if not apiResp.Success:
-                    logger.LogMessage('error', 'error submitting parsed text to Api {0} {1}'.format(
-                        fileMeta.full_name, apiResp.message))
+                    logger.LogMessage('error', 'error submitting parsed text to Api {0} {1}'.format(fileMeta.full_name, apiResp.message))
                     return False
 
                 if not apiResp.Ok:
-                    logger.LogMessage('error', 'error submitting parsed text to Api, unexpected response code {0} {1} {2}'.format(
-                        fileMeta.full_name, apiResp.code, apiResp.message))
+                    logger.LogMessage('error', 'error submitting parsed text to Api, unexpected response code {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
                     return False
 
                 logger.LogMessage('verbose', 'parsed text submited {0}'.format(fileMeta.full_name))
@@ -226,8 +262,7 @@ def ProcessFile(sha, fileId, meta, sourceId):
         ambarFile['file_id'] = fileId
         ambarFile['indexed_datetime'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 
-        apiResp = apiProxy.SubmitProcessedFile(fileId, json.dumps(
-            dict(ambarFile)).encode(encoding='utf_8', errors='ignore'))
+        apiResp = apiProxy.SubmitProcessedFile(fileId, json.dumps(dict(ambarFile)).encode(encoding='utf_8', errors='ignore'))
 
         if not apiResp.Success:
             logger.LogMessage('error', 'error submitting parsed content to Api {0} {1}'.format(
@@ -239,21 +274,28 @@ def ProcessFile(sha, fileId, meta, sourceId):
                 fileMeta.full_name, apiResp.code, apiResp.message))
             return False
 
-        logger.LogMessage(
-            'verbose', 'parsed content submited {0}'.format(fileMeta.full_name))
+        logger.LogMessage('verbose', 'parsed content submited {0}'.format(fileMeta.full_name))
+
+        apiResp = apiProxy.AddMetaIdToCache(fileMeta.id)
+
+        if not apiResp.Success:
+            logger.LogMessage('error', 'error adding meta id to cache {0} {1}'.format(fileMeta.full_name, apiResp.message))
+            return False
+
+        if not apiResp.Ok:
+            logger.LogMessage('error', 'error adding meta id to cache, unexpected response code {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
+            return False
 
         # removing original file
         if not preserveOriginals:
             apiResp = apiProxy.RemoveFileContent(sha)
 
             if not apiResp.Success:
-                logger.LogMessage('error', 'error removing original file from Ambar for {0} {1}'.format(
-                    fileMeta.full_name, apiResp.message))
+                logger.LogMessage('error', 'error removing original file from Ambar for {0} {1}'.format(fileMeta.full_name, apiResp.message))
                 return False
 
             if not (apiResp.Ok or apiResp.NotFound):
-                logger.LogMessage('error', 'error removing original file from Ambar for {0}, unexpected response code {1} {2}'.format(
-                    fileMeta.full_name, apiResp.code, apiResp.message))
+                logger.LogMessage('error', 'error removing original file from Ambar for {0}, unexpected response code {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
                 return False
 
             if apiResp.Ok:
@@ -263,31 +305,25 @@ def ProcessFile(sha, fileId, meta, sourceId):
         ## tags
         apiResp = apiProxy.RemoveAutoTags(fileId)
         if not apiResp.Success:
-            logger.LogMessage('error', 'error removing autotags {0} {1}'.format(
-                fileMeta.full_name, apiResp.message))
+            logger.LogMessage('error', 'error removing autotags {0} {1}'.format(fileMeta.full_name, apiResp.message))
             return False
 
         if not apiResp.Ok:
-            logger.LogMessage('error', 'error removing autotags, unexpected response code {0} {1} {2}'.format(
-                fileMeta.full_name, apiResp.code, apiResp.message))
+            logger.LogMessage('error', 'error removing autotags, unexpected response code {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
             return False
 
         autoTagger.AutoTagAmbarFile(ambarFile)
 
         return True
     except Exception as e:
-        logger.LogMessage('error', 'error processing task {0} {1}'.format(sha, repr(e)))
+        logger.LogMessage('error', 'error processing task {0}'.format(repr(e)))
         return False
 
 # main callback on receiving message from Rabbit
 
 def RabbitConsumeCallback(channel, method, properties, body):
-    bodyObject = json.loads(body.decode('utf-8'))
-    sha = bodyObject['sha']
-    fileId = bodyObject['fileId']
-    meta = bodyObject['meta']
-    sourceId = bodyObject['sourceId']
-    if (ProcessFile(sha, fileId, meta, sourceId)):
+    message = json.loads(body.decode('utf-8'))
+    if (ProcessFile(message)):
         channel.basic_ack(delivery_tag=method.delivery_tag)
     else:
         channel.basic_nack(delivery_tag=method.delivery_tag, requeue=False)

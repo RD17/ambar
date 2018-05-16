@@ -80,10 +80,10 @@ class TableRowResult extends Component {
                     <UpdatedDateTimeLabel meta={meta} searchQuery={searchQuery} formatFunc={getFormattedTime} />
                 </TableRowColumn>
                 <TableRowColumn style={{ width: '220px' }}>
-                    {preserveOriginals && <IconButton onTouchTap={() => { window.open(downloadUri) }}
+                    {!hidden_mark && meta.source_id != 'ui-upload' && !meta.extra.some(item => item.key === 'from_container') && <IconButton onTouchTap={() => { window.open(downloadUri) }}
                         title={localization.searchPage.downloadDescriptionLabel}>
                         <FileDownloadIcon color='#00bcd4' hoverColor='#80deea' />
-                    </IconButton>}                  
+                    </IconButton>}                 
                     <IconButton
                         disabled={!(contentHighlight && content.thumb_available)}
                         onTouchTap={() => {
@@ -94,10 +94,7 @@ class TableRowResult extends Component {
                     </IconButton>
                     {!hidden_mark && <IconButton onTouchTap={() => hideFile(fileId)} title={localization.searchPage.removeLabel}>
                         <DeleteIcon color='#00bcd4' hoverColor='#80deea' />
-                    </IconButton>}
-                    {(isHidden || hidden_mark) && <IconButton onTouchTap={() => showFile(fileId)} title={localization.searchPage.restoreLabel}>
-                        <UndoIcon color='#00bcd4' hoverColor='#80deea' />
-                    </IconButton>}
+                    </IconButton>}                   
                 </TableRowColumn>
             </TableRow>
         )

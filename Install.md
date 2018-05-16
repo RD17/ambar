@@ -1,9 +1,9 @@
 # Install docker and docker-compose
 
 To install and configure Ambar you need an expertise in unix, Docker and Docker Compose.
-If you have any difficulties installing and running Ambar you can request a dedicated support session by mailing us on hello@ambar.cloud
+If you have any difficulties installing and running Ambar you can request a dedicated support session by mailing us on [hello@ambar.cloud](mailto:hello@ambar.cloud)
 
-Please refer to official [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/)  installation instructions.
+Please refer to official [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installation instructions.
 
 To check if everything is installed correctly please run:
 
@@ -44,11 +44,40 @@ Then modify it:
 
 ## Set up your crawlers
 
-- Find ```crawler0``` block - this is a template for your new crawler
-- Replace ```${crawlerName}``` with desired name for your crawler (only lowercase latin letters and dashes are supported)
+- Find ````${crawlerName}``` block - this is a template for your new crawler
+- Replace ```${crawlerName}``` with desired name for your crawler (only lowercase latin letters and dashes are supported). Check that service block name and  crawler name are the same
 - Replace ```${pathToCrawl}``` with path to a local folder to be crawled, if you want to crawl SMB or FTP - just mount it with standard unix tools
 
-You can add additional crawlers by copying ```crawler0``` segment and editing its settings (don't forget to edit the service name, e.g. to ```crawler1```).
+### Optional settings
+- `ignoreFolders` - ignore fodlers by [glob pattern](https://github.com/isaacs/node-glob#glob-primer)
+- `ignoreExtensions` - ignore file extensions by [glob pattern](https://github.com/isaacs/node-glob#glob-primer) (default: .{exe,dll})
+- `ignoreFileNames` - ignore file names by [glob pattern](https://github.com/isaacs/node-glob#glob-primer) (default: ~*)
+- `maxFileSize` - max file size (default: 300mb)
+
+### Crawler configuration example:
+```
+Docs:
+    depends_on: 
+      serviceapi: 
+        condition: service_healthy 
+    image: ambar/ambar-local-crawler
+    restart: always
+    networks:
+      - internal_network
+    expose:
+      - "8082"
+    environment:      
+      - name=Docs
+      - ignoreFolders=**/ForSharing/**
+      - ignoreExtensions=.{exe,dll,rar}
+      - ignoreFileNames=*backup*
+      - maxFileSize=15mb
+    volumes:
+      - /media/Docs:/usr/data
+```
+
+
+You can add more crawlers by copying ```${crawlerName}``` segment and editing its settings (don't forget to edit the service name).
 
 # Start Ambar
 
@@ -58,4 +87,4 @@ To start Ambar run ```docker-compose up -d```.
 
 Ambar UI will be accessible on ```http://${ambarHostIpAddress}/```
 
-If you have any difficulties installing and running Ambar you can request a dedicated support session by mailing us on hello@ambar.cloud
+If you have any difficulties installing and running Ambar you can request a dedicated support session by mailing us on [hello@ambar.cloud](mailto:hello@ambar.cloud)
