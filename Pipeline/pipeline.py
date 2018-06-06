@@ -31,7 +31,7 @@ webApiUrl = os.getenv('web_api_url', 'http://webapi:8080')
 rabbitHost = os.getenv('rabbit_host','amqp://ambar')
 
 ocrPdfSymbolsPerPageThreshold = int(os.getenv('ocrPdfSymbolsPerPageThreshold', 1000))
-ocrPdfMaxPageCount = int(os.getenv('ocrPdfSymbolsPerPageThreshold', 5))
+ocrPdfMaxPageCount = int(os.getenv('ocrPdfMaxPageCount', 5))
 preserveOriginals = True if os.getenv('preserveOriginals', 'False') == 'True' else False
 
 # instantiating Api proxy
