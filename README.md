@@ -53,6 +53,8 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 ## Installation
 
+**Notice**: Ambar requires Docker to run, it can't run w/o Docker
+
 Just follow the [installation instruction](https://github.com/RD17/ambar/blob/master/Install.md)
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
