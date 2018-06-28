@@ -49,7 +49,7 @@ Then modify it:
 - Replace ```${pathToCrawl}``` with path to a local folder to be crawled, if you want to crawl SMB or FTP - just mount it with standard unix tools
 
 ### Optional settings
-- `ignoreFolders` - ignore fodlers by [glob pattern](https://github.com/isaacs/node-glob#glob-primer)
+- `ignoreFolders` - ignore folders by [glob pattern](https://github.com/isaacs/node-glob#glob-primer)
 - `ignoreExtensions` - ignore file extensions by [glob pattern](https://github.com/isaacs/node-glob#glob-primer) (default: .{exe,dll})
 - `ignoreFileNames` - ignore file names by [glob pattern](https://github.com/isaacs/node-glob#glob-primer) (default: ~*)
 - `maxFileSize` - max file size (default: 300mb)
