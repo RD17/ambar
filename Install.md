@@ -45,7 +45,7 @@ Then modify it:
 ## Set up your crawlers
 
 - Find ```${crawlerName}``` block - this is a template for your new crawler
-- Replace ```${crawlerName}``` with desired name for your crawler (only lowercase latin letters and dashes are supported). Check that service block name and  crawler name are the same
+- Replace ```${crawlerName}``` with desired name for your crawler (**only lowercase latin letters and dashes are supported**). Check that service block name and  crawler name are the same
 - Replace ```${pathToCrawl}``` with path to a local folder to be crawled, if you want to crawl SMB or FTP - just mount it with standard unix tools
 
 ### Optional settings
@@ -56,7 +56,7 @@ Then modify it:
 
 ### Crawler configuration example:
 ```
-Docs:
+my_files:
     depends_on: 
       serviceapi: 
         condition: service_healthy 
@@ -67,7 +67,7 @@ Docs:
     expose:
       - "8082"
     environment:      
-      - name=Docs
+      - name=my_files
       - ignoreFolders=**/ForSharing/**
       - ignoreExtensions=.{exe,dll,rar}
       - ignoreFileNames=*backup*
