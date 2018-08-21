@@ -136,6 +136,7 @@ services:
       - "8082"
     environment:      
       - name=${crawlerName}
+      - apiUrl=http://serviceapi:8081
     volumes:
       - ${pathToCrawl}:/usr/data
 
