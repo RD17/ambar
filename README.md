@@ -5,7 +5,7 @@
 :mag: Ambar: Document Search Engine
 ================================
 
-![Ambar Search](https://ambar.cloud/images/search.gif)
+![Ambar Search](https://ambar.cloud/img/search.gif)
 
 Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
