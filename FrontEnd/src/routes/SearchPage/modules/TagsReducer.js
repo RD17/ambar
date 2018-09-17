@@ -1,4 +1,4 @@
-import { stateValueExtractor, constants, analytics } from 'utils/'
+import { stateValueExtractor, constants } from 'utils/'
 import { hitsModel } from 'models/'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 import { startLoadingIndicator, stopLoadingIndicator } from 'routes/MainLayout/modules/MainLayout'
@@ -52,8 +52,7 @@ export const addTagToFile = (fileId, tagType, tagName) => {
         })
             .then(resp => {
                 if (resp.status == 200 || resp.status == 201) {
-                    dispatch(markTagAsCreated(fileId, tagType, tagName))
-                    analytics().event('TAGS.ADD', { name: tagName })
+                    dispatch(markTagAsCreated(fileId, tagType, tagName))                    
                     return resp.json()
                 }
                 else { throw resp }
@@ -80,8 +79,7 @@ export const removeTagFromFile = (fileId, tagType, tagName) => {
             ...defaultSettings
         })
             .then(resp => {
-                if (resp.status == 200) {
-                    analytics().event('TAGS.REMOVED', { name: tagName })
+                if (resp.status == 200) {                    
                     return resp.json()
                 }
                 else { throw resp }

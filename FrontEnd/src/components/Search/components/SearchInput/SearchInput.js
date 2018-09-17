@@ -7,8 +7,6 @@ import MediaQuery from 'react-responsive'
 import classes from './SearchInput.scss'
 
 class SearchInput extends Component {
-    static timeoutId = null
-
     componentDidMount() {
         this.refs.search_input.focus()
     }
@@ -34,7 +32,7 @@ class SearchInput extends Component {
                     <SearchIcon style={{ color: 'white', height: '100%' }} onTouchTap={() => search(0, query)} />
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', width: '100%' }} >
-                    <TextField                        
+                    <TextField
                         ref='search_input'
                         name='search_input'
                         fullWidth={true}
@@ -43,25 +41,17 @@ class SearchInput extends Component {
                         hintStyle={{ color: '#EEEEEE' }}
                         hintText={hintText}
                         spellCheck={false}
-                        value={query}                        
+                        value={query}
                         onKeyPress={(event) => {
                             if (event.charCode === 13) {
                                 search(0, query)
                                 return
                             }
                         }}
-                        onKeyDown={(event) => {
-                            clearTimeout(this.timeoutId)
-                        }}
                         onChange={(event, newValue) => {
-                            clearTimeout(this.timeoutId)
                             setQuery(newValue)
-
-                            this.timeoutId = setTimeout(() => {
-                                search(0, newValue)
-                            }, 500)
-                        }}                        
-                        underlineShow={false}                                                      
+                        }}
+                        underlineShow={false}
                     />
                 </div>
             </div>

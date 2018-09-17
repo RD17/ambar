@@ -1,4 +1,4 @@
-import { titles, stateValueExtractor, urls, constants, analytics } from 'utils'
+import { titles, stateValueExtractor, urls, constants } from 'utils'
 import 'whatwg-fetch'
 
 const CHANGE_FIELD = 'CORE.CHANGE_FIELD'
@@ -22,10 +22,7 @@ export const loadConfig = () => {
                 const urls = stateValueExtractor.getUrls(getState())   
 
                 dispatch(changeField('version', apiInfo.version))
-                dispatch(changeField('lang', apiInfo.uiLang))   
-
-                analytics(apiInfo.analyticsToken)
-                analytics().register({ apiUrl: urls.apiHost })
+                dispatch(changeField('lang', apiInfo.uiLang))                   
 
             })
             .then(() => dispatch(stopLoadingIndicator()))
@@ -56,7 +53,10 @@ const stopLoadingIndicator = () => {
 
 const getApiUrl = () => new Promise((resolve, reject) => {
     fetch('apiUrl.txt', {
-        method: 'GET'
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+        cache: 'no-cache'
     })
         .then(resp => resolve(resp.text()))
         .catch(err => reject(err))
@@ -64,7 +64,10 @@ const getApiUrl = () => new Promise((resolve, reject) => {
 
 const getLocalizationsJson = () => new Promise((resolve, reject) => {
     fetch('localizations.json', {
-        method: 'GET'
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+        cache: 'no-cache'
     })
         .then(resp => resolve(resp.text()))
         .catch(err => reject(err))
@@ -72,7 +75,10 @@ const getLocalizationsJson = () => new Promise((resolve, reject) => {
 
 const getWebApiInfo = (url) => new Promise((resolve, reject) => {
     fetch(url, {
-        method: 'GET'
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+        cache: 'no-cache'
     })
         .then(resp => resolve(resp.json()))
         .catch(err => reject(err))
@@ -88,8 +94,7 @@ export function showInfo(message) {
 export function handleError(error, showErrorMessage = false) {    
     if (error.constructor === Response) {
         error = `Response ${error.status} ${error.statusText} at ${error.url}`
-    }    
-    analytics().event('ERROR', { description: error ? error.toString() : 'no info' })
+    }        
     console.log(error)
 
     return {

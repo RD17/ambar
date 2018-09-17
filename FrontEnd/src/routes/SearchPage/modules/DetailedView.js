@@ -1,6 +1,5 @@
 import { stateValueExtractor } from 'utils/'
 import { hitsModel } from 'models/'
-import { analytics } from 'utils'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 import { startLoadingIndicator, stopLoadingIndicator } from 'routes/MainLayout/modules/MainLayout'
 
@@ -25,7 +24,6 @@ export const loadHighlight = (fileId, query) => {
                 .then((resp) => {
                     dispatch(setContentHighlight(fileId, hitsModel.contentHighlightFromApi(resp)))
                     dispatch(startStopHighlightLoadingIndicator(fileId, false))
-                    analytics().event('SEARCH.LOAD_HIGHLIGHT')
                 })
                 .catch((errorPayload) => {
                     dispatch(startStopHighlightLoadingIndicator(fileId, false))

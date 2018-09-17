@@ -5,18 +5,21 @@
         "index.mapper.dynamic": false,
         "analysis": {
             "char_filter": {
-                "russian_cf": {
+                "ambar_cf": {
                     "type": "mapping",
                     "mappings": [
                         "ё => е",
                         "Ё => Е",
-                        "Й => И",
-                        "й => и",
                         ": => \\u0020"
                     ]
                 }
             },
             "filter": {
+                "russian_replace_i": {
+                    "type": "pattern_replace",
+                    "pattern": "й",
+                    "replacement": "и"
+                },
                 "russian_stop": {
                     "type": "stop",
                     "stopwords": "_russian_"
@@ -24,10 +27,6 @@
                 "russian_stemmer": {
                     "type": "stemmer",
                     "language": "russian"
-                },
-                "russian_stop_alt": {
-                    "type": "stop",
-                    "stopwords": "а,без,более,бы,был,была,были,было,быть,в,вам,вас,весь,во,вот,все,всего,всех,вы,где,да,даже,для,до,его,ее,если,есть,еще,же,за,здесь,и,из,или,им,их,к,как,ко,когда,кто,ли,либо,мне,может,мы,на,надо,наш,не,него,нее,нет,ни,них,но,ну,о,об,однако,он,она,они,оно,от,очень,по,под,при,с,со,так,также,такой,там,те,тем,то,того,тоже,той,только,том,ты,у,уже,хотя,чего,чей,чем,что,чтобы,чье,чья,эта,эти,это,я,a,an,and,are,as,at,be,but,by,for,if,in,into,is,it,no,not,of,on,or,such,that,the,their,then,there,these,they,this,to,was,will,with"
                 },
                 "ambar_word_delimiter": {
                     "type": "word_delimiter",
@@ -102,29 +101,18 @@
                         "lowercase"
                     ]
                 },
-                "ambar_ru_old": {
+                "ambar_ru": {
                     "tokenizer": "standard",
                     "char_filter": [
-                        "russian_cf"
+                        "ambar_cf"
                     ],
                     "filter": [
                         "lowercase",
                         "russian_stop",
-                        "russian_stemmer",
-                        "ambar_word_delimiter"
-                    ]
-                },
-                "ambar_ru": {
-                    "tokenizer": "standard",
-                    "char_filter": [
-                        "russian_cf"
-                    ],
-                    "filter": [
-                        "lowercase",
                         "russian_morphology",
                         "english_morphology",
-                        "russian_stop_alt",
-                        "ambar_word_delimiter"
+                        "ambar_word_delimiter",
+                        "russian_replace_i"
                     ]
                 },
                 "ambar_en": {

@@ -26,7 +26,7 @@ export const enqueuePipelineMessage = (storage, message) => new Promise((resolve
 })
 
 export const initRabbit = new Promise((resolve, reject) => {
-	amqp.connect(`${config.rabbitHost}?heartbeat=60`)
+	amqp.connect(`${config.rabbitHost}?heartbeat=0`)
 		.then((conn) => {
 			conn.on('error', (err) => {			
 				//eslint-disable-next-line no-console	

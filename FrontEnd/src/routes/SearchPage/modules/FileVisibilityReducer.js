@@ -1,4 +1,4 @@
-import { stateValueExtractor, analytics } from 'utils'
+import { stateValueExtractor } from 'utils'
 import { hitsModel } from 'models/'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 import { startLoadingIndicator, stopLoadingIndicator } from 'routes/MainLayout/modules/MainLayout'
@@ -18,7 +18,6 @@ export const hideFile = (fileId) => {
         })
             .then(resp => {
                 if (resp.status == 200) {
-                    analytics().event('FILE.HIDE')
                     return
                 }
                 else { throw resp }
@@ -43,7 +42,6 @@ export const showFile = (fileId) => {
         })
             .then(resp => {
                 if (resp.status == 200) {
-                    analytics().event('FILE.SHOW')
                     return
                 }
                 else { throw resp }

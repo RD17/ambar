@@ -1,6 +1,6 @@
 {
   "name": "ambar-webapi",
-  "version": "2.1.0",
+  "version": "2.1.18",
   "description": "Ambar WebAPI",
   "main": "dist",
   "scripts": {

@@ -1,4 +1,4 @@
-import { stateValueExtractor, constants, titles, analytics } from 'utils/'
+import { stateValueExtractor, constants, titles } from 'utils/'
 import { hitsModel, folderHitsModel } from 'models/'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 import { startLoadingIndicator, stopLoadingIndicator } from 'routes/MainLayout/modules/MainLayout'
@@ -154,9 +154,7 @@ const performSearch = (page, query) => {
                     const hasMore = (hits.size > 0)
                     const clean = (page == 0)
                     dispatch(stopLoadingIndicator())
-                    dispatch(fillHits(clean, hits, data.found, query, hasMore, page))
-
-                    if (page === 0) { analytics().event('SEARCH.PERFORM', { query: query }) }
+                    dispatch(fillHits(clean, hits, data.found, query, hasMore, page))                    
                 })
                 .catch((errorPayload) => {
                     dispatch(stopLoadingIndicator())

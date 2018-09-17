@@ -1,5 +1,5 @@
 import { stateValueExtractor } from 'utils/'
-import { analytics, FormDataPolyfill } from 'utils'
+import {  FormDataPolyfill } from 'utils'
 import { handleError, showInfo } from 'routes/CoreLayout/modules/CoreLayout'
 import 'whatwg-fetch'
 
@@ -41,7 +41,6 @@ export const uploadFiles = () => {
                 dispatch(toggleUploadModal())
                 dispatch(cleanFilesToUpload())
                 dispatch(showInfo('Files succesfully uploaded'))
-                analytics().event('SEARCH.UPLOAD_FILES', { count: uploadPromises.length })
             })
             .catch((errorPayload) => {
                 dispatch(filesUploading(false))
@@ -50,7 +49,6 @@ export const uploadFiles = () => {
                     dispatch(handleError('No free space left in your account', true))
                 } else {
                     dispatch(handleError(errorPayload))
-                    analytics().event('SEARCH.UPLOAD_FILES_ERROR', { error: errorPayload })
                 }
 
                 console.error('uploadFile', errorPayload)

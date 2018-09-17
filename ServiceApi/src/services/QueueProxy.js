@@ -32,7 +32,7 @@ export const enqueuePipelineMessage = (storage, message) => new Promise((resolve
 })
 
 export const initRabbit = new Promise((resolve, reject) => {
-	amqp.connect(`${config.rabbitHost}?heartbeat=60`)
+	amqp.connect(`${config.rabbitHost}?heartbeat=0`)
 		.then((conn) => {
 			conn.on('error', (err) => {
 				//eslint-disable-next-line no-console
@@ -45,9 +45,9 @@ export const initRabbit = new Promise((resolve, reject) => {
 					.then(() => channel.assertExchange(AMBAR_PIPELINE_WAITING_EXCHANGE,
 						'fanout', { durable: false }))
 					.then(() => channel.assertQueue(AMBAR_PIPELINE_QUEUE,
-						{ durable: false, arguments: { 'x-dead-letter-exchange': AMBAR_PIPELINE_WAITING_EXCHANGE, 'x-max-priority': AMBAR_PIPELINE_QUEUE_MAX_PRIORITY } }))
+						{ durable: false, arguments: { 'x-queue-mode': 'lazy', 'x-dead-letter-exchange': AMBAR_PIPELINE_WAITING_EXCHANGE, 'x-max-priority': AMBAR_PIPELINE_QUEUE_MAX_PRIORITY } }))
 					.then(() => channel.assertQueue(AMBAR_PIPELINE_WAITING_QUEUE,
-						{ durable: false, arguments: { 'x-dead-letter-exchange': AMBAR_PIPELINE_EXCHANGE, 'x-message-ttl': AMBAR_PIPELINE_WAITING_QUEUE_TTL } }))
+						{ durable: false, arguments: { 'x-queue-mode': 'lazy', 'x-dead-letter-exchange': AMBAR_PIPELINE_EXCHANGE, 'x-message-ttl': AMBAR_PIPELINE_WAITING_QUEUE_TTL } }))
 					.then(() => channel.bindQueue(AMBAR_PIPELINE_QUEUE,
 						AMBAR_PIPELINE_EXCHANGE))
 					.then(() => channel.bindQueue(AMBAR_PIPELINE_WAITING_QUEUE,
