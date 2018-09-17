@@ -89,8 +89,7 @@ services:
       - "8080"
     ports:
       - "8080:8080"
-    environment:      
-      - analyticsToken=cda4b0bb11a1f32aed7564b08c455992
+    environment:            
       - uiLang=en
       - mongoDbUrl=mongodb://db:27017/ambar_data
       - elasticSearchUrl=http://es:9200
