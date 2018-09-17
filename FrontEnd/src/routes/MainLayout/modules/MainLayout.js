@@ -1,4 +1,4 @@
-import { urls, titles, stateValueExtractor, analytics } from 'utils'
+import { urls, titles, stateValueExtractor } from 'utils'
 import { push } from 'react-router-redux'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 
@@ -43,8 +43,7 @@ export function stopLoadingIndicator() {
 
 export const toggleRateUsModal = (value) => {
     return (dispatch, getState) => {      
-      dispatch(changeField('showRateUsModal', value))
-      analytics().event('ACCOUNT.RATE_US_MODAL_OPENED')
+      dispatch(changeField('showRateUsModal', value))      
     } 
 }
 

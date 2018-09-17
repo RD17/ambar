@@ -1,4 +1,3 @@
-import { analytics } from 'utils'
 import { handleError } from 'routes/CoreLayout/modules/CoreLayout'
 import { search, updateQuery } from 'routes/SearchPage/modules/SearchReducer'
 

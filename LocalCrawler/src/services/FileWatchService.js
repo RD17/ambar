@@ -8,24 +8,17 @@ import minimatch from 'minimatch'
 import * as ApiProxy from './ApiProxy'
 import * as QueueProxy from './QueueProxy'
 
-export const startWatch = () => new Promise((resolve, reject) => {
-    QueueProxy.initRabbit()
-        .then(() => {
-            chokidar.watch(config.crawlPath, { usePolling: true, awaitWriteFinish: true })
-                .on('error', error => {
-                    ApiProxy.logData(config.name, 'error', `Chokidar error: ${error}`)
-                })
-                .on('all', (event, pathToFile, stat) => {
-                    if (event === 'add' || event === 'change' || event === 'unlink') {                       
-                        addTask(event, pathToFile, stat)
-                    }
-                })
+export const startWatch = () => {
+    chokidar.watch(config.crawlPath, { usePolling: true, awaitWriteFinish: true })
+        .on('error', error => {
+            ApiProxy.logData(config.name, 'error', `Chokidar error: ${error}`)
         })
-        .catch(err => {
-            ApiProxy.logData(config.name, 'error', `Error: ${err}`)
-            reject(err)
-        })
-})
+        .on('all', (event, pathToFile, stat) => {
+            if (event === 'add' || event === 'change' || event === 'unlink') {
+                addTask(event, pathToFile, stat)
+            }
+        })       
+}
 
 const shouldIgnore = (pathToFile, stat) => {
     if (!stat) {
@@ -70,7 +63,7 @@ const shouldIgnore = (pathToFile, stat) => {
     return false
 }
 
-const addTask = (event, pathToFile, stat) => {    
+const addTask = (event, pathToFile, stat) => {
     let normalizedPath = path.normalize(pathToFile)
 
     normalizedPath = `//${normalizedPath.replace(config.crawlPath, config.name)}`.replace(/\\/g, '/')
@@ -82,7 +75,7 @@ const addTask = (event, pathToFile, stat) => {
     const meta = {
         full_name: normalizedPath,
         updated_datetime: !stat ? '' : moment(stat.mtime).format('YYYY-MM-DD HH:mm:ss.SSS'),
-        created_datetime: !stat ? '' :moment(stat.atime).format('YYYY-MM-DD HH:mm:ss.SSS'),
+        created_datetime: !stat ? '' : moment(stat.atime).format('YYYY-MM-DD HH:mm:ss.SSS'),
         source_id: config.name,
         short_name: path.basename(normalizedPath),
         extension: path.extname(normalizedPath),

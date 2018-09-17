@@ -11,8 +11,7 @@ const defaultConfig = {
 	"apiUrl": "http://ambar:8080",
 	"serviceApiUrl": "http://localhost:8081",	
 	"rabbitHost": "amqp://ambar",
-	"uiLang": "en",
-	"analyticsToken": "",
+	"uiLang": "en",	
 	"crawlerPort": 8082
 }
 

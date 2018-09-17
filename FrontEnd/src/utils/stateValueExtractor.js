@@ -13,7 +13,8 @@ export const getLocalization = (state) => {
 export const getDefaultSettings = () => {
     return {
         mode: 'cors',
-        credentials: 'include',
+        credentials: 'include',        
+        cache: 'no-cache',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',

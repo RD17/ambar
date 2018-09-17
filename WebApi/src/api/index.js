@@ -19,8 +19,7 @@ export default ({ config, storage }) => {
 
 	api.get('/', (req, res) => {
 		res.json({
-			version: version,				
-			analyticsToken: config.analyticsToken,			
+			version: version,							
 			uiLang: config.uiLang,
 			rawConfig: config
 		})

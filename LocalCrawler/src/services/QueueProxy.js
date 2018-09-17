@@ -18,14 +18,10 @@ export const enqueueMessage = (message) => {
     channel.publish(AMBAR_PIPELINE_EXCHANGE, '', Buffer.from(JSON.stringify(message)), { priority: priority })
 }
 
-export const initRabbit = () => new Promise((resolve, reject) => {
+export const initRabbit = (onError) => new Promise((resolve, reject) => {
     amqp.connect(`${config.rabbitHost}?heartbeat=0`)
         .then((conn) => {
-            conn.on('error', (err) => {
-                //eslint-disable-next-line no-console	
-                console.error('Rabbit error!')
-                throw err
-            })
+            conn.on('error', onError)
 
             return conn.createChannel()
                 .then(ch => {
