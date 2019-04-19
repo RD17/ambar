@@ -124,7 +124,7 @@ def ProcessFile(message):
             return False
 
         if not (apiResp.Ok or apiResp.NotFound):
-            logger.LogMessage('error', 'error unhiding file, unexpected response code {0} {1} {2}'.format(fileMeta.full_name, apiResp.code, apiResp.message))
+            logger.LogMessage('error', 'error unhiding file, unexpected response code {0} {1} {2}'.format(meta['full_name'], apiResp.code, apiResp.message))
             return False
         
         fileMeta = AmbarFileMeta.Init(meta)
