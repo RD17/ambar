@@ -76,7 +76,9 @@ services:
       - redisHost=redis
       - redisPort=6379
       - rabbitHost=amqp://rabbit
-      - langAnalyzer=${langAnalyzer}   
+      - langAnalyzer=${langAnalyzer}  
+      - SLAO_HOSTNAME=ambar 
+      - SLAO_API_KEY=
   webapi:
     depends_on:
       serviceapi:
@@ -96,7 +98,9 @@ services:
       - redisHost=redis
       - redisPort=6379
       - serviceApiUrl=http://serviceapi:8081
-      - rabbitHost=amqp://rabbit    
+      - rabbitHost=amqp://rabbit  
+      - SLAO_HOSTNAME=ambar
+      - SLAO_API_KEY=  
   frontend:
     depends_on:
       webapi:

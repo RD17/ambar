@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-v2.1.18-brightgreen.svg)](https://ambar.cloud)
+[![Version](https://img.shields.io/badge/Version-v2.1.19-brightgreen.svg)](https://ambar.cloud)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/RD17/ambar/blob/master/License.txt)
 
 :mag: Ambar: Document Search Engine

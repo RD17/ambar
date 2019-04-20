@@ -1,5 +1,12 @@
 Change log
 ==========
+2.1.19 (2019-04-19)
+-------------------
+
+### What's new:
+
+- API monitoring with SLAO added, set `SLAO_API_KEY` env values for `serviceapi` and `webapi` containers in your `docker-compose.yml` file 
+
 2.1.8 (2018-05-16)
 -------------------
 
@@ -7,7 +14,7 @@ This Release is sponsored by [IFIC.co.uk](http://www.ific.co.uk/), special thank
 
 ### What's new:
 
-- Dramatic increase of crawling speed
+- Dramatic increase in crawling speed
 - Storage consumption is minimal, now you download files directly from crawled fs
 - File removal sync -> if file removed from folder it will be marked as removed in Ambar
 - Added ability to ignore files by folders, extensions and file names
