@@ -8,12 +8,13 @@
 
 Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
-Ambar defines the new way to implement a full-text document search into yor workflow:
+Ambar defines a new way to implement a full-text document search into yor workflow:
 - Easily deploy Ambar with a single `docker-compose` file
 - Perform a Google-like search through your documents and images contents
 - Ambar supports all popular document formats, performs OCR if needed
 - Tag your documents
 - Use a simple REST Api to integrate Ambar into your workflow
+- Ambar includes a native health monitoring with [SLAO.IO](https://slao.io)
 
 ## Features
 
@@ -58,9 +59,13 @@ Just follow the [installation instruction](https://ambar.cloud/docs/installation
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
+## Monitoring with [SLAO.IO](https://slao.io)
+
+Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
+
 ## Support
 
-Ambar is fully open-source and free to use, however you can get a dedicated support from our team for a fee:
+Ambar is fully open-source and free to use, however you can get dedicated support from our team for a fee:
 
 - Install & Configure Ambar on your machine - 999$
 - Mount external data source - 99$
