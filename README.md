@@ -14,7 +14,7 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 - Ambar supports all popular document formats, performs OCR if needed
 - Tag your documents
 - Use a simple REST Api to integrate Ambar into your workflow
-- Ambar includes a native health monitoring with [SLAO.IO](https://slao.io)
+- Ambar includes a native health monitoring with [SLAO.IO](http://link.slao.io/hi)
 
 ## Features
 
@@ -59,7 +59,7 @@ Just follow the [installation instruction](https://ambar.cloud/docs/installation
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
-## Monitoring with [SLAO.IO](https://slao.io)
+## Monitoring with [SLAO.IO](http://link.slao.io/hi)
 
 Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
 
