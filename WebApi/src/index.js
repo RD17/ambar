@@ -5,6 +5,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import api from './api'
 import config from './config'
+import slao from 'slao'
 import { ErrorHandlerService, EsProxy, StorageService } from './services'
 
 const createLogRecord = (type, message) => ({
@@ -16,6 +17,8 @@ const createLogRecord = (type, message) => ({
 let app = express()
 
 app.server = http.createServer(app)
+
+app.use(slao.init({ appName: 'ambar-webapi' }))
 
 app.use(cors({
 	credentials: true,

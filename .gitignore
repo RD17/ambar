@@ -370,3 +370,5 @@ __pycache__/
 # tools/
 
 doc/
+
+*/yarn.lock
