@@ -59,7 +59,7 @@ Just follow the [installation instruction](https://ambar.cloud/docs/installation
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
-## Monitoring with [SLAO.IO](http://link.slao.io/hi)
+## Monitoring with [SLAO.IO](https://slao.io)
 
 Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
 
