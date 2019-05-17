@@ -2,7 +2,7 @@ const defaultConfig = {
 	"port": 8082,
 	"bodyLimit": "10mb",	
 	"crawlPath": "/usr/data",
-	"apiUrl": "http://serviceapi:8080",
+	"apiUrl": "http://webapi:8080",
 	"ignoreFolders": "**/test/**",
 	"ignoreExtensions": ".{exe,dll}",
 	"ignoreFileNames": "~*",	
