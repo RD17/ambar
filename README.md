@@ -18,7 +18,7 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 ## Features
 
 ### Search
-[Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
+[Tutorial: Mastering Ambar Search Queries](https://ambar.cloud/blog/2017/03/24/mastering-search-queries/)
 
 * Fuzzy Search (John~3)
 * Phrase Search ("John Smith")
