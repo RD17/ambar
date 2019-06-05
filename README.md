@@ -14,7 +14,6 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 - Ambar supports all popular document formats, performs OCR if needed
 - Tag your documents
 - Use a simple REST Api to integrate Ambar into your workflow
-- Ambar includes a native health monitoring with [SLAO.IO](http://link.slao.io/hi)
 
 ## Features
 
@@ -63,24 +62,12 @@ Just follow the [installation instruction](https://ambar.cloud/docs/installation
 
 Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
 
-## Support
-
-Ambar is fully open-source and free to use, however you can get dedicated support from our team for a fee:
-
-- Install & Configure Ambar on your machine - 999$
-- Mount external data source - 99$
-- Add automatic tagging rule - 299$
-- Add password protection to Ambar UI - 299$
-- Add custom file extractor - 599$
-- Dedicated support - 199$/hour
-- Custom features development - 299$/hour
-
 ## FAQ
 ### Is it open-source?
 Yes, it's fully open-source now.
 
 ### Is it free?
-Yes, it is forever free.
+Yes, it is forever free for noncommercial use.
 
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
