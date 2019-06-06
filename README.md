@@ -58,10 +58,6 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 *Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
-## Monitoring with [SLAO.IO](https://slao.io)
-
-Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
-
 ## FAQ
 ### Is it open-source?
 Yes, it's fully open-source now.
