@@ -54,16 +54,19 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 **Notice**: Ambar requires Docker to run, it can't run w/o Docker
 
-[Fill up the form](https://forms.gle/vDRTEJMdz6b6KaTRA) and you'll receive the installation instruction.
+You can build Docker images by yourself or buy prebuilt Docker images for **$50**.
 
-*Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
+* Installation instruction for prebuilt images can be found [here](https://ambar.cloud/docs/installation/)
+* Tutorial on how to build images from scratch will be available soon
+
+If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
 
 ## FAQ
 ### Is it open-source?
-Yes, it's fully open-source now.
+Yes, it's fully open-source.
 
 ### Is it free?
-Yes, it is forever free for noncommercial use.
+Yes, it is forever free and open-source.
 
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
