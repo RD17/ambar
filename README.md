@@ -14,11 +14,12 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 - Ambar supports all popular document formats, performs OCR if needed
 - Tag your documents
 - Use a simple REST Api to integrate Ambar into your workflow
+- Ambar includes a native health monitoring with [SLAO.IO](https://slao.io)
 
 ## Features
 
 ### Search
-[Tutorial: Mastering Ambar Search Queries](https://ambar.cloud/blog/2017/03/24/mastering-search-queries/)
+[Tutorial: Mastering Ambar Search Queries](https://blog.ambar.cloud/mastering-ambar-search-queries/)
 
 * Fuzzy Search (John~3)
 * Phrase Search ("John Smith")
@@ -54,19 +55,32 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 **Notice**: Ambar requires Docker to run, it can't run w/o Docker
 
-You can build Docker images by yourself or buy prebuilt Docker images for **$50**.
+Just follow the [installation instruction](https://ambar.cloud/docs/installation/)
 
-* Installation instruction for prebuilt images can be found [here](https://ambar.cloud/docs/installation/)
-* Tutorial on how to build images from scratch will be available soon
+*Docker images can be found on [Docker Hub](https://hub.docker.com/u/ambar/)*
 
-If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
+## Monitoring with [SLAO.IO](https://slao.io)
+
+Ambar 2.1.19 includes a native monitoring for its rest APIs. Check out the [installation instruction](https://ambar.cloud/docs/installation/) for more details.
+
+## Support
+
+Ambar is fully open-source and free to use, however you can get dedicated support from our team for a fee:
+
+- Install & Configure Ambar on your machine - 999$
+- Mount external data source - 99$
+- Add automatic tagging rule - 299$
+- Add password protection to Ambar UI - 299$
+- Add custom file extractor - 599$
+- Dedicated support - 199$/hour
+- Custom features development - 299$/hour
 
 ## FAQ
 ### Is it open-source?
-Yes, it's fully open-source.
+Yes, it's fully open-source now.
 
 ### Is it free?
-Yes, it is forever free and open-source.
+Yes, it is forever free.
 
 ### Does it perform OCR? 
 Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed by well-known open-source library Tesseract. We tuned it to achieve best perfomance and quality on scanned documents. You can easily find all files on which OCR was perfomed with `tags:ocr` query
