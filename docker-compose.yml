@@ -6,7 +6,7 @@ services:
     restart: always
     networks:
       - internal_network
-    image: ambar/ambar-mongodb:latest
+    image: repo.ambar.cloud:443/ambar-mongodb:2.1
     environment:
       - cacheSizeGB=2
     volumes:
@@ -17,7 +17,7 @@ services:
     restart: always
     networks:
       - internal_network
-    image: ambar/ambar-es:latest
+    image: repo.ambar.cloud:443/ambar-es:2.1
     expose:
       - "9200" 
     environment:
@@ -38,7 +38,7 @@ services:
     restart: always
     networks:
       - internal_network
-    image: ambar/ambar-rabbit:latest
+    image: repo.ambar.cloud:443/ambar-rabbit:2.1
     hostname: rabbit
     expose:
       - "15672"
@@ -51,7 +51,7 @@ services:
       - net.core.somaxconn=1024
     networks:
       - internal_network
-    image: ambar/ambar-redis:latest
+    image: repo.ambar.cloud:443/ambar-redis:2.1
     expose:
       - "6379" 
   serviceapi:
@@ -67,7 +67,7 @@ services:
     restart: always
     networks:
       - internal_network
-    image: ambar/ambar-serviceapi:latest
+    image: repo.ambar.cloud:443/ambar-serviceapi:2.1
     expose:
       - "8081"  
     environment:            
@@ -86,7 +86,7 @@ services:
     restart: always
     networks:
       - internal_network
-    image: ambar/ambar-webapi:latest
+    image: repo.ambar.cloud:443/ambar-webapi:2.1
     expose:
       - "8080"
     ports:
@@ -105,7 +105,7 @@ services:
     depends_on:
       webapi:
         condition: service_healthy
-    image: ambar/ambar-frontend:latest
+    image: repo.ambar.cloud:443/ambar-frontend:2.1
     restart: always
     networks:
       - internal_network
@@ -119,7 +119,7 @@ services:
     depends_on: 
       serviceapi: 
         condition: service_healthy                            
-    image: ambar/ambar-pipeline:latest
+    image: repo.ambar.cloud:443/ambar-pipeline:2.1
     restart: always
     networks:
       - internal_network  
@@ -131,7 +131,7 @@ services:
     depends_on: 
       serviceapi: 
         condition: service_healthy 
-    image: ambar/ambar-local-crawler
+    image: repo.ambar.cloud:443/ambar-local-crawler:2.1
     restart: always
     networks:
       - internal_network
