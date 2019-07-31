@@ -61,6 +61,26 @@ You can build Docker images by yourself or buy prebuilt Docker images for **$50*
 
 If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
 
+## Building the images yourself
+
+All of the images required to run ambar can be built by the user. In general, each image can be built by navigating into the directory of the component in question, performing any compilation steps required, then building the image like so:
+
+```
+# From project root
+$ cd FrontEnd
+$ docker build . -t <image_name>
+```
+
+The resulting image can be referred to by the name specified, and run by the containerization tooling of your choice.
+
+Note that some of the components require compilation or other build steps before the docker images can be built. For example, `FrontEnd`:
+
+```
+# Assuming a suitable version of node.js is installed (docker uses 8.10)
+$ npm install
+$ npm run compile
+```
+
 ## FAQ
 ### Is it open-source?
 Yes, it's fully open-source.
