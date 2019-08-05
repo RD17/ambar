@@ -73,7 +73,18 @@ $ docker build . -t <image_name>
 
 The resulting image can be referred to by the name specified, and run by the containerization tooling of your choice.
 
-Note that some of the components require compilation or other build steps before the docker images can be built. For example, `FrontEnd`:
+In order to use a local Dockerfile with `docker-compose`, simply change the `image` option to `build`, setting the value to the relative path of the directory containing the dockerfile. Then run `docker-compose build` to build the relevant images. For example:
+
+```
+# docker-compose.yml from project root, referencing local dockerfiles
+pipeline0:
+  build: ./Pipeline/
+image: chazu/ambar-pipeline
+  localcrawler:
+    image: ./LocalCrawler/
+```
+
+Note that some of the components require compilation or other build steps be performed _on the host_ before the docker images can be built. For example, `FrontEnd`:
 
 ```
 # Assuming a suitable version of node.js is installed (docker uses 8.10)
