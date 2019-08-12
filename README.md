@@ -56,14 +56,14 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 You can build Docker images by yourself or buy prebuilt Docker images for **$100** [here](https://ambar.cloud/pricing/).
 
-* Installation instruction for prebuilt images can be found [here](https://ambar.cloud/docs/installation/)
+* The installation instruction for prebuilt images can be found [here](https://ambar.cloud/docs/installation/)
 * Tutorial on how to build images from scratch will be available soon
 
 If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
 
 ## Building the images yourself
 
-All of the images required to run ambar can be built by the user. In general, each image can be built by navigating into the directory of the component in question, performing any compilation steps required, then building the image like so:
+All of the images required to run Ambar can be built by the user. In general, each image can be built by navigating into the directory of the component in question, performing any compilation steps required, then building the image like so:
 
 ```
 # From project root
