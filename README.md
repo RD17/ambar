@@ -28,7 +28,7 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 * Search By Size (size>1M)
 * Search By Tags (tags:ocr)
 * Search As You Type
-* Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK `ambar_cjk`
+* Supported language analyzers: English `ambar_en`, Russian `ambar_ru`, German `ambar_de`, Italian `ambar_it`, Polish `ambar_pl`, Chinese `ambar_cn`, CJK `ambar_cjk`, Swedish `ambar_sv`
 
 ### Crawling
 
@@ -44,7 +44,7 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 * OCR over images
 * Email messages with attachments
 * Adobe PDF (with OCR)
-* OCR languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld
+* OCR languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld, Swe
 * OpenOffice documents
 * RTF, Plaintext
 * HTML / XHTML

@@ -92,6 +92,18 @@
                 "german_stemmer": {
                     "type": "stemmer",
                     "language": "light_german"
+                },
+                "swedish_stemmer": {
+                  "type": "stemmer",
+                  "language": "swedish"
+                },
+                "swedish_stop": {
+                  "type": "stop",
+                  "stopwords": "_swedish_"
+                },
+                "swedish_icu_folding": {
+                  "type": "icu_folding",
+                  "unicodeSetFilter": "[^åäöÅÄÖ]"
                 }
             },
             "analyzer": {
@@ -164,6 +176,15 @@
                     "filter": [
                         "lowercase"
                     ]
+                },
+                "ambar_sv": {
+                  "tokenizer": "standard",
+                  "filter": [
+                    "lowercase",
+                    "swedish_icu_folding",
+                    "swedish_stop",
+                    "swedish_stemmer"
+                  ]
                 }
             }
         }

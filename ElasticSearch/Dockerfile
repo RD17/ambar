@@ -9,6 +9,7 @@ COPY elasticsearch.yml ./config/elasticsearch.yml
 RUN bin/elasticsearch-plugin install http://dl.bintray.com/content/imotov/elasticsearch-plugins/org/elasticsearch/elasticsearch-analysis-morphology/5.6.3/elasticsearch-analysis-morphology-5.6.3.zip
 RUN bin/elasticsearch-plugin install analysis-stempel
 RUN bin/elasticsearch-plugin install analysis-smartcn
+RUN bin/elasticsearch-plugin install analysis-icu
 
 CMD ["elasticsearch"]
 
