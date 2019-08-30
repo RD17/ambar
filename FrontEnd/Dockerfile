@@ -1,5 +1,11 @@
 FROM node:10-alpine as node
 
+ARG PORT=localhost
+ARG FRONTEND_HOST=3000
+
+ENV PORT=$PORT
+ENV FRONTEND_HOST=$FRONTEND_HOST
+ 
 RUN apk --no-cache add --virtual native-deps \
   g++ gcc libgcc libstdc++ linux-headers make python
 RUN npm install --quiet node-gyp -g
