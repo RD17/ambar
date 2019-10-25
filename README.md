@@ -84,14 +84,6 @@ image: chazu/ambar-pipeline
     image: ./LocalCrawler/
 ```
 
-Note that some of the components require compilation or other build steps be performed _on the host_ before the docker images can be built. For example, `FrontEnd`:
-
-```
-# Assuming a suitable version of node.js is installed (docker uses 8.10)
-$ npm install
-$ npm run compile
-```
-
 ## FAQ
 ### Is it open-source?
 Yes, it's fully open-source.
