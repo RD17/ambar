@@ -8,12 +8,11 @@
 
 Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
-Ambar defines a new way to implement a full-text document search into yor workflow:
+Ambar defines a new way to implement full-text document search into yor workflow.
 - Easily deploy Ambar with a single `docker-compose` file
-- Perform a Google-like search through your documents and images contents
-- Ambar supports all popular document formats, performs OCR if needed
+- Perform Google-like search through your documents and contents of your images
 - Tag your documents
-- Use a simple REST Api to integrate Ambar into your workflow
+- Use a simple REST API to integrate Ambar into your workflow
 
 ## Features
 
@@ -33,11 +32,13 @@ Ambar defines a new way to implement a full-text document search into yor workfl
 ### Crawling
 
 Ambar 2.0 only supports local fs crawling, if you need to crawl an SMB share of an FTP location - just mount it using standard linux tools.
-Crawling is automatic, no schedule is needed since the crawler monitors fs events and automatically processes new files.
+Crawling is automatic, no schedule is needed due to crawlers monitor file system events and automatically process new, changed and removed files.
 
 ### Content Extraction
 
-* Ambar supports large files (>30MB)
+**Ambar supports large files (>30MB)**
+
+Supported file types:
 * ZIP archives
 * Mail archives (PST)
 * MS Office documents (Word, Excel, Powerpoint, Visio, Publisher)
@@ -52,18 +53,18 @@ Crawling is automatic, no schedule is needed since the crawler monitors fs event
 
 ## Installation
 
-**Notice**: Ambar requires Docker to run, it can't run w/o Docker
+**Notice**: Ambar requires Docker to run
 
 You can build Docker images by yourself or buy prebuilt Docker images for **$50** [here](https://ambar.cloud/pricing/).
 
-* The installation instruction for prebuilt images can be found [here](https://ambar.cloud/docs/installation/)
+* Installation instruction for prebuilt images: [here](https://ambar.cloud/docs/installation/)
 * Tutorial on how to build images from scratch see below
 
 If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
 
 ## Building the images yourself
 
-All of the images required to run Ambar can be built by the user. In general, each image can be built by navigating into the directory of the component in question, performing any compilation steps required, then building the image like so:
+All the images required to run Ambar can be built locally. In general, each image can be built by navigating into the directory of the component in question, performing the compilation steps required and building the image like that:
 
 ```
 # From project root
@@ -73,7 +74,7 @@ $ docker build . -t <image_name>
 
 The resulting image can be referred to by the name specified, and run by the containerization tooling of your choice.
 
-In order to use a local Dockerfile with `docker-compose`, simply change the `image` option to `build`, setting the value to the relative path of the directory containing the dockerfile. Then run `docker-compose build` to build the relevant images. For example:
+In order to use a local Dockerfile with `docker-compose`, simply change the `image` option to `build`, setting the value to the relative path of the directory containing the Dockerfile. Then run `docker-compose build` to build the relevant images. For example:
 
 ```
 # docker-compose.yml from project root, referencing local dockerfiles
