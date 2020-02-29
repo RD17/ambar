@@ -8,7 +8,7 @@
 
 Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
-Ambar defines a new way to implement full-text document search into yor workflow.
+Ambar defines a new way to implement full-text document search into your workflow.
 - Easily deploy Ambar with a single `docker-compose` file
 - Perform Google-like search through your documents and contents of your images
 - Tag your documents
