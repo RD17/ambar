@@ -1,4 +1,4 @@
-FROM node:8.10
+FROM node:8.17
 
 # Set a timezone
 ENV TZ=UTC
