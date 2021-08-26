@@ -6,6 +6,8 @@
 
 ![Ambar Search](https://ambar.cloud/img/search.gif)
 
+**⚠️ PROJECT ARCHIVED ⚠️**
+
 Ambar is an open-source document search engine with automated crawling, OCR, tagging and instant full-text search.
 
 Ambar defines a new way to implement full-text document search into your workflow.
@@ -104,7 +106,6 @@ Yes, it performs OCR on images (jpg, tiff, bmp, etc) and PDF's. OCR is perfomed 
 
 ### Which languages are supported for OCR?
 Supported languages: Eng, Rus, Ita, Deu, Fra, Spa, Pl, Nld.
-If you miss your language please contact us on hello@ambar.cloud.
 
 ### Does it support tagging?
 Yes!
@@ -114,9 +115,6 @@ Yes, it can search through any PDF, even badly encoded or with scans inside. We 
 
 ### What is the maximum file size it can handle?
 It's limited by amount of RAM on your machine, typically it's 500MB. It's an awesome result, as typical document managment systems offer 30MB maximum file size to be processed.  
-
-### I have a problem what should I do?
-Request a dedicated support session by mailing us on hello@ambar.cloud
 
 ## Sponsors
 
