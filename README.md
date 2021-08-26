@@ -55,12 +55,9 @@ Supported file types:
 
 **Notice**: Ambar requires Docker to run
 
-You can build Docker images by yourself or buy prebuilt Docker images for **$50** [here](https://ambar.cloud/pricing/).
+You can build Docker images by yourself
 
-* Installation instruction for prebuilt images: [here](https://ambar.cloud/docs/installation/)
 * Tutorial on how to build images from scratch see below
-
-If you want to see how Ambar works w/o installing it, try our [live demo](https://app.ambar.cloud/). No signup required.
 
 ## Building the images yourself
 
@@ -92,6 +89,8 @@ Note that some of the components require compilation or other build steps be per
 $ npm install
 $ npm run compile
 ```
+
+Then follow this instructions -> https://ambar.cloud/docs/installation
 
 ## FAQ
 ### Is it open-source?
